@@ -250,6 +250,11 @@ export default function Home() {
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
             </p>
+            <iframe
+              src="https://ozyn4.github.io/korika.dashboard/"
+              style={{ width: '100%', height: '600px', border: 'none' }}
+              title="Dashboard"
+            />
           </motion.div>
         </div>
       </section>
