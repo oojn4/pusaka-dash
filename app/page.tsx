@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import BG from "@/public/img/Smelter-1024x576.jpg";
+import logo from "@/public/img/logo.jpg";
+import METHODS from "@/public/img/metod.jpg";
+import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
-import { delay, motion, stagger } from "framer-motion";
-import BG from "@/public/img/bg.webp";
-import Img1 from "@/public/img/img-1.webp";
-import Img2 from "@/public/img/img-2.webp";
-import Img3 from "@/public/img/img-3.webp";
+import Image from "next/image";
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -17,30 +16,30 @@ export default function Home() {
 
   const bgAnimate = {
     hidden: {
-      clipPath:'polygon(21% 27%, 77% 26%, 77% 77%, 21% 77%)',
+      clipPath: 'polygon(21% 27%, 77% 26%, 77% 77%, 21% 77%)',
     },
     show: {
-      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, )',
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
       transition: {
         ease: 'easeInOut',
         duration: 0.8,
-        delay:1,
+        delay: 1,
       }
     }
   }
   const textAnimate1 = {
     hidden: {
       y: '100%',
-      opacity:0,
+      opacity: 0,
     },
     show: {
       y: 0,
-      opacity: 1, 
+      opacity: 1,
       transition: {
         ease: 'easeInOut',
         duration: 0.8,
         staggerChildren: 0.4,
-        delayChildren:1,
+        delayChildren: 1,
       }
     }
   }
@@ -48,9 +47,8 @@ export default function Home() {
     hidden: {
       x: "0"
     },
-    show:(i:any) =>({
+    show: (i: any) => ({
       x: i,
-     
       transition: {
         ease: "easeInOut",
         duration: 0.8,
@@ -64,40 +62,39 @@ export default function Home() {
       transition: {
         staggerChildren: 0.6,
         delayChildren: 3,
-        ease:'easeInOut'
+        ease: 'easeInOut'
       }
     }
   };
 
-    const imageAnimateChild = {
-      hidden: {
-        x: 100,
-        opacity:0
-      },
-      show: {
-        x: 0,
-        opacity:1,
-        transition: {
-          
-          ease: "easeInOut",
-        },
-      },
-    };
-
-    const navAnimate = {
+  const imageAnimateChild = {
     hidden: {
-      y:'-110%'
+      x: 100,
+      opacity: 0
+    },
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const navAnimate = {
+    hidden: {
+      y: '-110%'
     },
     show: {
       y: 0,
       transition: {
         type: "spring",
         stiffness: 60,
-        delay:1.5
+        delay: 1.5
       }
     }
-    };
-  
+  };
+
   const textParagraph = {
     hidden: {
       y: '-100%',
@@ -107,106 +104,155 @@ export default function Home() {
       y: 0,
       opacity: 1,
       transition: {
-        type:'spring',
+        type: 'spring',
         stiffness: 60,
-        delay:2.8,
+        delay: 2.8,
       },
     },
   };
-  
+
   return (
-    <main className="h-screen px-4 overflow-hidden">
-      <div className="absolute inset-0 h-screen w-screen z-0">
+    <main className="min-h-screen px-4">
+      {/* Fixed Background */}
+      <div className="fixed inset-0 z-0">
         <Image
           alt=""
           src={BG}
           fill
           priority={true}
           sizes="(max-width:786px) 33vw, (max-width:1024px) 50vw, 100vw"
-          className="object-cover  brightness-50"
+          className="object-cover brightness-50"
         />
       </div>
+
+      {/* Fixed Navbar */}
       <motion.nav
-        className="flex sm:flex-row flex-col z-10 relative justify-between py-2 items-center"
+        className="fixed top-0 left-0 w-full z-10 bg-opacity-70 backdrop-blur-md flex sm:flex-row flex-col justify-between py-2 items-center"
         variants={navAnimate}
         initial="hidden"
         animate="show"
       >
         <div
-          className={`text-xl font-bold text-yellow-200 underline ?{pasifico.className}`}
+          className={`text-xl font-bold text-yellow-200 underline ${pacifico.className}`}
         >
-          BuildPainting
+          <Image alt=""
+            src={logo}
+            width={100} />
         </div>
-        <ul className="w-[300px] flex justify-between items-center">
-          <li className="font-semibold text-[#eaeaea]">Home</li>
-          <li className="font-semibold text-[#eaeaea]">About</li>
-          <li className="font-semibold text-[#eaeaea]">Contact</li>
+        <ul className="w-[500px] flex justify-between items-center">
+          <li className="font-semibold text-[#eaeaea]">Latar Belakang</li>
+          <li className="font-semibold text-[#eaeaea]">Metodologi</li>
+          <li className="font-semibold text-[#eaeaea]">Tujuan 1</li>
+          <li className="font-semibold text-[#eaeaea]">Tujuan 2</li>
         </ul>
       </motion.nav>
-      <div className="relative top-[120px]">
+
+      {/* Main Content */}
+      <section className="pt-[80px] pb-16 px-4 relative z-10">
+        <div className="relative top-[120px]">
+          <motion.div
+            className="relative left-[40%] sm:left-[25%]"
+            variants={textAnimate1}
+            initial="hidden"
+            animate="show"
+          >
+            {/* <motion.h1
+              className={`lg:text-[7.2rem] sm:text-5xl text-xl text-[#eaeaea] tracking-tight font-bold ${pacifico.className}`}
+              variants={textAnimate2}
+              custom={-120}
+            >
+              Forkestra
+            </motion.h1> */}
+          </motion.div>
+          <motion.div
+            className="relative left-[0%]"
+            variants={textAnimate1}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.h1
+              className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold `}
+              variants={textAnimate2}
+              custom={80}
+              style={{ "fontSize": "70px" }}
+            >
+              Optimalisasi Aksessibilitas dan Konektivitas Smelter Nikel
+            </motion.h1>
+          </motion.div>
+        </div>
         <motion.div
-          className="relative left-[40%] sm:left-[25%]"
-          variants={textAnimate1}
+          className="flex sm:flex-row flex-col gap-4 mt-8"
+          variants={imageAnimate}
           initial="hidden"
           animate="show"
         >
-          <motion.h1
-            className={`lg:text-[7.2rem] sm:text-5xl text-xl text-[#eaeaea] tracking-tight font-bold ${pacifico.className}`}
-            variants={textAnimate2}
-            custom={-120}
+          {/* Image components here */}
+        </motion.div>
+      </section>
+
+      {/* New Sections */}
+      <section className="py-16 px-4" style={{ marginTop: "310px" }}>
+        <div className="max-w-4xl mx-auto">
+          <motion.h2
+            className="text-4xl font-bold text-yellow-200 mb-8"
+            variants={textParagraph}
+            initial="hidden"
+            animate="show"
           >
-            Painting
-          </motion.h1>
-        </motion.div>
-        <motion.div
-          className="relative left-[20%]"
-          variants={textAnimate1}
-          initial="hidden"
-          animate="show"
-        >
-          <motion.h1
-            className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold `}
-            variants={textAnimate2}
-            custom={80}
+            Latar Belakang
+          </motion.h2>
+          <motion.div className="py-16 px-4 relative z-10">
+            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            </p>
+          </motion.div>
+          <motion.h2
+            className="text-4xl font-bold text-yellow-200 mb-8 z-10"
+            variants={textParagraph}
+            initial="hidden"
+            animate="show"
           >
-            Experience
-          </motion.h1>
-        </motion.div>
-      </div>
-      <motion.div
-        className="flex sm:flex-row flex-col  gap-4 absolute bottom-4"
-        variants={imageAnimate}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.div className="relative lg:w-[300px] lg:h-[200px] sm:w-[230px] sm:h-[200px] w-[200px] h-[100px]" variants={imageAnimateChild}>
+            Metodologi
+          </motion.h2>
           <Image
-            src={Img1}
-            alt=""
-            className="object-cover rounded-sm saturate-150"
-            fill
-            sizes="(max-width:768px) 33vw (max-width:1024px) 50vw, 100vw"
-          />
-        </motion.div>
-        <motion.div className="relative lg:w-[300px] lg:h-[200px] sm:w-[230px] sm:h-[200px] w-[200px] h-[100px]" variants={imageAnimateChild}>
-          <Image
-            src={Img2}
-            alt=""
-            className="object-cover rounded-sm saturate-150"
-            fill
-            sizes="(max-width:768px) 33vw (max-width:1024px) 50vw, 100vw"
-          />
-        </motion.div>
-        <motion.div className="relative lg:w-[300px] lg:h-[200px] sm:w-[230px] sm:h-[200px] w-[200px] h-[100px]" variants={imageAnimateChild}>
-          <Image
-            src={Img3}
-            alt=""
-            className="object-cover rounded-sm saturate-150"
-            fill
-            sizes="(max-width:768px) 33vw (max-width:1024px) 50vw, 100vw"
-          />
-        </motion.div>
-      </motion.div>
+          alt=""
+          src={METHODS}
+          className="object-cover brightness-100"
+          style={{"width":"100%"}}
+        />
+          <motion.div className="py-16 px-4 relative z-10">
+            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            </p>
+          </motion.div>
+          <motion.h2
+            className="text-4xl font-bold text-yellow-200 mb-8"
+            variants={textParagraph}
+            initial="hidden"
+            animate="show"
+          >
+            Tujuan 1
+          </motion.h2>
+          <motion.div className="py-16 px-4 relative z-10">
+            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            </p>
+          </motion.div>
+          <motion.h2
+            className="text-4xl font-bold text-yellow-200 mb-8"
+            variants={textParagraph}
+            initial="hidden"
+            animate="show"
+          >
+            Tujuan 2
+          </motion.h2>
+          <motion.div className="py-16 px-4 relative z-10">
+            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            </p>
+          </motion.div>
+        </div>
+      </section>
     </main>
   );
 }
