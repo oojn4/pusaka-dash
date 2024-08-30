@@ -127,7 +127,7 @@ export default function Home() {
 
       {/* Fixed Navbar */}
       <motion.nav
-        className="fixed top-0 left-0 w-full z-10 bg-opacity-70 backdrop-blur-md flex sm:flex-row flex-col justify-between py-2 items-center"
+        className="fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-md flex sm:flex-row flex-col justify-between py-2 items-center  z-10"
         variants={navAnimate}
         initial="hidden"
         animate="show"
@@ -139,7 +139,7 @@ export default function Home() {
             src={logo}
             width={100} />
         </div>
-        <ul className="w-[500px] flex justify-between items-center">
+        <ul className="w-[400px] flex justify-between items-center">
           <li className="font-semibold text-[#eaeaea]">Latar Belakang</li>
           <li className="font-semibold text-[#eaeaea]">Metodologi</li>
           <li className="font-semibold text-[#eaeaea]">Tujuan 1</li>
@@ -148,7 +148,7 @@ export default function Home() {
       </motion.nav>
 
       {/* Main Content */}
-      <section className="pt-[80px] pb-16 px-4 relative z-10">
+      <section className="pt-[80px] pb-16 px-4 relative z-1">
         <div className="relative top-[120px]">
           <motion.div
             className="relative left-[40%] sm:left-[25%]"
@@ -201,13 +201,13 @@ export default function Home() {
           >
             Latar Belakang
           </motion.h2>
-          <motion.div className="py-16 px-4 relative z-10">
+          <motion.div className="py-16 px-4 relative z-1">
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
             </p>
           </motion.div>
           <motion.h2
-            className="text-4xl font-bold text-yellow-200 mb-8 z-10"
+            className="text-4xl font-bold text-yellow-200 mb-8 z-1"
             variants={textParagraph}
             initial="hidden"
             animate="show"
@@ -220,7 +220,7 @@ export default function Home() {
           className="object-cover brightness-100"
           style={{"width":"100%"}}
         />
-          <motion.div className="py-16 px-4 relative z-10">
+          <motion.div className="py-16 px-4 relative z-1">
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
             </p>
@@ -233,7 +233,7 @@ export default function Home() {
           >
             Tujuan 1
           </motion.h2>
-          <motion.div className="py-16 px-4 relative z-10">
+          <motion.div className="py-16 px-4 relative z-1">
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
             </p>
@@ -246,7 +246,7 @@ export default function Home() {
           >
             Tujuan 2
           </motion.h2>
-          <motion.div className="py-16 px-4 relative z-10">
+          <motion.div className="py-16 px-4 relative z-1">
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
             </p>
