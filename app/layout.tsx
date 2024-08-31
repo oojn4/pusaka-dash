@@ -5,8 +5,8 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Animated Landing Page",
-  description: "Animated Landing Page using Framer Motion.",
+  title: "Aksesibilitas dan Konektivitas Smelter Nikel",
+  description: "Aksesibilitas dan Konektivitas Smelter Nikel",
 };
 
 export default function RootLayout({
