@@ -1,23 +1,27 @@
 "use client";
-
 import BG from "@/public/img/Smelter-1024x576.jpg";
+import MONEY_INFRA from "@/public/img/f2.webp";
 import logo from "@/public/img/logo.jpg";
 import METHODS from "@/public/img/metod.jpg";
 import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
+import PieChart from "./components/PieChart";
 import QuadrantAnalysis from "./components/QuadrantAnalysis";
 
 const pacifico = Pacifico({
   subsets: ["latin"],
   weight: "400",
 });
-const data = [
+const quadrantData = [
   { x: 10, y: 20, label: 'A' },
   { x: -10, y: -20, label: 'B' },
   { x: 15, y: -25, label: 'C' },
   { x: -15, y: 25, label: 'D' },
 ];
+const pieLabels = ['B Pertambangan dan Penggalian', 'C Industri Pengolahan', 'F Konstruksi', 'A Pertanian,Kehutanan,dan Perikanan', 'G Perdagangan', 'Lainnya'];
+const pieDatasetLabel = 'PDRB';
+const pieData = [21.08, 6.47, 14.03, 22.95, 12.76, 4.89];
 
 export default function Home() {
 
@@ -207,7 +211,9 @@ export default function Home() {
       <br />
       <br />
       <br />
-      <section className="py-16 px-6 relative z-1">
+      <br />
+      <br />
+      <section className="py-16 px-6 z-1">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             className="text-4xl font-bold text-yellow-200 mb-8"
@@ -218,15 +224,44 @@ export default function Home() {
           >
             Latar Belakang
           </motion.h2>
-          <motion.div className="pt-8">
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
+          <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ textAlign: 'left' }}>
+                <h1></h1>
+                <p>
+                Sektor pertambangan merupakan salah satu <b>penopang utama</b> perkonomian Sulawesi Tenggara (21,08%)
+                </p>
+                <br />
+                <p>
+                Namun, potensi ekonomi dari sektor ini <b>belum sepenuhnya dilakukan hilirisasi ke dalam industri pengolahan</b>. Pengembangan industri pengolahan selain memberikan nilai tambah yang lebih besar juga memungkinkan memberikan <b><i>multiplier effect</i></b> seperti penciptaan lapangan pekerjaan.
+                </p>
+                <br />
+              </div>
+            </div>
+            <div style={{ width: '50%' }}>
+              <PieChart labels={pieLabels} datasetLabel={pieDatasetLabel} data={pieData} />
+            </div>
             <br />
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
           </motion.div>
+          <br />
+          <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column'}}>
+              <div>
+              <Image
+                alt=""
+                src={MONEY_INFRA}
+                width={"300"}
+              />
+              </div>
+            </div>
+            <div style={{ width: '50%' , justifyContent: 'center' ,textAlign: 'right' }} className="pt-16">
+              <p></p>
+              <p><b>Investasi infrastruktur transportasi</b> di wilayah pertambangan dapat <b>meningkatkan konektivitas</b> dan <b>pertumbuhan ekonomi</b> secara <b>signifikan</b> (Asian Development Bank)</p>
+              <p></p>
+            </div>
+            <br />
+          </motion.div>
+
           <motion.h2
             className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
             variants={textParagraph}
@@ -262,7 +297,7 @@ export default function Home() {
           </motion.h2>
           <motion.div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <QuadrantAnalysis data={data} />
+              <QuadrantAnalysis data={quadrantData} />
             </div>
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg mt-6">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
