@@ -251,6 +251,32 @@ export default function Home() {
               className="pt-8 rounded-lg"
             />
           </motion.div>
+          <motion.div className="pt-8">
+            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            </p>
+            <br />
+            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            </p>
+          </motion.div>
+          <motion.div >
+          <iframe
+              src="https://oojn4.github.io/forkestra-ntlmaps/"
+              style={{ width: '100%', height: '600px', border: 'none' }}
+              title="Dashboard"
+              className="pt-8 rounded-lg"
+            />
+          </motion.div>
+          <motion.div className="pt-8">
+            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            </p>
+            <br />
+            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            </p>
+          </motion.div>
           <motion.h2
             className="text-4xl font-bold text-yellow-200 mb-8"
             variants={textParagraph}
