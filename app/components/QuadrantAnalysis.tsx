@@ -48,7 +48,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             // Assert the type of raw to DataPoint
             const dataPoint = tooltipItem.raw as DataPoint;
             const label = dataPoint.label;
-            return label ? `Label: ${label}` : '';
+            return label ? `Perusahaan: ${label}` : '';
           },
         },
       },
@@ -57,24 +57,24 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           // Vertical Line
           verticalLine: {
             type: 'line',
-            xMin: 0,
-            xMax: 0,
+            xMin: 21.36,
+            xMax: 21.36,
             borderColor: 'red',
             borderWidth: 2,
           },
           // Horizontal Line
           horizontalLine: {
             type: 'line',
-            yMin: 0,
-            yMax: 0,
+            yMin: 0.2257,
+            yMax: 0.2257,
             borderColor: 'blue',
             borderWidth: 2,
           },
           // Quadrant Labels
           quadrantI: {
             type: 'label',
-            xValue: 5,
-            yValue: 5,
+            xValue: 21.36+2,
+            yValue: 0.2257+0.25,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -90,8 +90,8 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantII: {
             type: 'label',
-            xValue: -5,
-            yValue: 5,
+            xValue: 21.36-2,
+            yValue: 0.2257+0.25,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -107,8 +107,8 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantIII: {
             type: 'label',
-            xValue: -5,
-            yValue: -5,
+            xValue: 21.36-2,
+            yValue: 0.2257-0.25,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -124,8 +124,8 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantIV: {
             type: 'label',
-            xValue: 5,
-            yValue: -5,
+            xValue: 21.36+2,
+            yValue: 0.2257-0.25,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,

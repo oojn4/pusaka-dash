@@ -14,11 +14,39 @@ const pacifico = Pacifico({
   weight: "400",
 });
 const quadrantData = [
-  { x: 10, y: 20, label: 'A' },
-  { x: -10, y: -20, label: 'B' },
-  { x: 15, y: -25, label: 'C' },
-  { x: -15, y: 25, label: 'D' },
+  { x: 18.13, y: 0.00686, label: 'PT SSU' },
+  { x: 20.34, y: 0.08891, label: 'PT AF' },
+  { x: 20.34, y: 0.08891, label: 'PT AP' },
+  { x: 20.54, y: 0.08519, label: 'PT BDM' },
+  { x: 19.69, y: 0.10238, label: 'PT CMP' },
+  { x: 20.26, y: 0.08961, label: 'PT DRI' },
+  { x: 20.15, y: 0.09042, label: 'PT PMS' },
+  { x: 17.20, y: 0.17069, label: 'PT PRT' },
+  { x: 23.05, y: 0.03578, label: 'PT VDNI' },
+  { x: 22.33, y: 0.05348, label: 'PT BSI' },
+  { x: 22.43, y: 0.05271, label: 'PT IMN' },
+  { x: 23.23, y: 0.05299, label: 'PT MMM' },
+  { x: 23.14, y: 0.05299, label: 'PT MMI' },
+  { x: 22.20, y: 0.05146, label: 'PT WIM' },
+  { x: 19.67, y: 0.07498, label: 'PT BP' },
+  { x: 21.94, y: 0.05066, label: 'PT BKA' },
+  { x: 21.11, y: 0.05762, label: 'PT CJ' },
+  { x: 19.67, y: 0.07498, label: 'PT CDS' },
+  { x: 19.60, y: 0.07833, label: 'PT KKU' },
+  { x: 19.64, y: 0.07485, label: 'PT KNN' },
+  { x: 21.10, y: 0.05618, label: 'PT MPR' },
+  { x: 19.63, y: 0.07522, label: 'PT SMA' },
+  { x: 19.63, y: 0.07524, label: 'PT SPR' },
+  { x: 23.48, y: 0.67455, label: 'BDE' },
+  { x: 23.72, y: 0.66248, label: 'PT BMR' },
+  { x: 23.32, y: 0.68691, label: 'PT MK' },
+  { x: 23.73, y: 0.66938, label: 'PT NPM' },
+  { x: 23.75, y: 0.66226, label: 'PT PS' },
+  { x: 23.65, y: 0.66774, label: 'PT SMM' },
+  { x: 23.66, y: 0.66726, label: 'PT SR' },
+  { x: 23.71, y: 0.66345, label: 'PT TMM' }
 ];
+
 const pieLabels = ['B Pertambangan dan Penggalian', 'C Industri Pengolahan', 'F Konstruksi', 'A Pertanian,Kehutanan,dan Perikanan', 'G Perdagangan', 'Lainnya'];
 const pieDatasetLabel = 'PDRB';
 const pieData = [21.08, 6.47, 14.03, 22.95, 12.76, 4.89];
