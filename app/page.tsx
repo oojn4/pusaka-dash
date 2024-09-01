@@ -353,7 +353,7 @@ export default function Home() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
             </p>
             <iframe
-              src="https://oojn4.github.io/forkestra-webmap/"
+              src="https://oojn4.github.io/forkestra-bivariatemap"
               style={{ width: '100%', height: '600px', border: 'none' }}
               title="Dashboard"
               className="pt-8 rounded-lg"
