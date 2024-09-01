@@ -7,9 +7,9 @@ import { Button } from "@mantine/core";
 import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import PieChart from "../components/PieChart";
-import QuadrantAnalysis from "../components/QuadrantAnalysis";
+import { useRouter } from 'next/navigation';
+import PieChart from "../../components/PieChart";
+import QuadrantAnalysis from "../../components/QuadrantAnalysis";
 const pacifico = Pacifico({
   subsets: ["latin"],
   weight: "400",
@@ -222,15 +222,8 @@ export default function Home() {
               Optimalisasi Aksessibilitas dan Konektivitas Smelter Nikel
             </motion.h1>
           </motion.div>
-          <br /><br />
-          <motion.div
-          className="relative left-200 center"
-            variants={textAnimate1}
-            initial="hidden"
-            animate="show"
-            style={{left:500}}>
+          <motion.div>
             <Button
-              className="pt-12"
               style={{
                 backgroundColor: "blue",
                 borderRadius: "30px", // Make the button fully rounded
@@ -238,7 +231,6 @@ export default function Home() {
                 padding: "10px 20px", // Optional: Add padding to the button
                 border: "none", // Optional: Remove border if any
                 cursor: "pointer", // Optional: Change cursor to pointer
-                alignItems:"center"
               }}
               onClick={handleDashboardClick}
             >
