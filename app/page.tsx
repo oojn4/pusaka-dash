@@ -278,7 +278,7 @@ export default function Home() {
             </p>
           </motion.div>
           <motion.h2
-            className="text-4xl font-bold text-yellow-200 mb-8"
+            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
             variants={textParagraph}
             initial="hidden"
             animate="show"
