@@ -243,7 +243,7 @@ export default function Home() {
       <br />
       <section className="py-16 px-6 z-1">
         <div className="max-w-4xl mx-auto">
-          <motion.div >
+         {/* <motion.div >
           <iframe
               src="https://oojn4.github.io/forkestra-webmap/"
               style={{ width: '100%', height: '600px', border: 'none' }}
@@ -276,7 +276,7 @@ export default function Home() {
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
             </p>
-          </motion.div>
+          </motion.div> */}
           <motion.h2
             className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
             variants={textParagraph}
