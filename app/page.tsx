@@ -243,6 +243,14 @@ export default function Home() {
       <br />
       <section className="py-16 px-6 z-1">
         <div className="max-w-4xl mx-auto">
+          <motion.div >
+          <iframe
+              src="https://oojn4.github.io/forkestra-webmap/"
+              style={{ width: '100%', height: '600px', border: 'none' }}
+              title="Dashboard"
+              className="pt-8 rounded-lg"
+            />
+          </motion.div>
           <motion.h2
             className="text-4xl font-bold text-yellow-200 mb-8"
             variants={textParagraph}
