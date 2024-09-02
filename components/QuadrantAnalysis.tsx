@@ -86,7 +86,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             padding: 6,
             xAdjust: 10,
             yAdjust: -10,
-            content: 'Quadrant I',
+            content: 'Kuadran I: Zona Optimum',
           },
           quadrantII: {
             type: 'label',
@@ -103,7 +103,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             padding: 6,
             xAdjust: -10,
             yAdjust: -10,
-            content: 'Quadrant II',
+            content: 'Kuadran II: Zona Padat',
           },
           quadrantIII: {
             type: 'label',
@@ -120,7 +120,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             padding: 6,
             xAdjust: -10,
             yAdjust: 10,
-            content: 'Quadrant III',
+            content: 'Kuadran III: Zona Terbatas',
           },
           quadrantIV: {
             type: 'label',
@@ -137,7 +137,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             padding: 6,
             xAdjust: 10,
             yAdjust: 10,
-            content: 'Quadrant IV',
+            content: 'Kuadran IV: Zona Terisolasi',
           },
         },
       },
