@@ -90,7 +90,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantII: {
             type: 'label',
-            xValue: -21.36-2,
+            xValue: -21.36-2+1,
             yValue: 0.2257+0.25,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
@@ -107,7 +107,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantIII: {
             type: 'label',
-            xValue: -21.36-2,
+            xValue: -21.36-2+1,
             yValue: 0.2257-0.25,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
