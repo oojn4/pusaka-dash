@@ -1,6 +1,7 @@
 "use client";
 import BarChart from "@/components/BarChart";
 import Table from "@/components/Table";
+import logo1 from "@/public/img/forkestra.png";
 import logo from "@/public/img/Network AI Team-3.png";
 import BG from "@/public/img/Smelter-1024x576.jpg";
 import { motion } from "framer-motion";
@@ -178,7 +179,10 @@ export default function Home() {
         animate="show"
       >
         <div className={`text-xl font-bold text-yellow-200 underline ${pacifico.className}`}>
+        <div className={`w-[600px] flex items-center`}>
           <Image alt="" src={logo} width={100} />
+          <Image alt="" src={logo1} height={10}  width={70} />
+        </div>
         </div>
         <ul className="w-[600px] flex justify-between items-center">
           <li className="font-semibold text-[#eaeaea]"><a href="/">Penjelasan Umum</a></li>
