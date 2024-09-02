@@ -181,11 +181,13 @@ export default function Home() {
         <div className={`text-xl font-bold text-yellow-200 underline ${pacifico.className}`}>
           <Image alt="" src={logo} width={100} />
         </div>
-        <ul className="w-[500px] flex justify-between items-center">
+        <ul className="w-[600px] flex justify-between items-center">
           <li className="font-semibold text-[#eaeaea]"><a href="#background">Latar Belakang</a></li>
           <li className="font-semibold text-[#eaeaea]"><a href="#method">Metodologi</a></li>
           <li className="font-semibold text-[#eaeaea]"><a href="#result1">Tujuan 1</a></li>
           <li className="font-semibold text-[#eaeaea]"><a href="#result2">Tujuan 2</a></li>
+          <li className="font-semibold text-[#eaeaea]"><a href="/dashboard">Dashboard</a></li>
+          <li></li>
           <li></li>
         </ul>
       </motion.nav>

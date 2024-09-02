@@ -15,3 +15,23 @@ body {
 .grid-col {
   flex: 1;
 }
+
+.bg-success {
+  background-color: #28a745; /* Example color */
+}
+.bg-danger {
+  background-color: #dc3545;
+}
+.bg-warning {
+  background-color: #ffc107;
+}
+
+.text-danger {
+  color: white;
+}
+.text-warning{
+  color: white;
+}
+.text-success {
+  color: white;
+}

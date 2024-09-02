@@ -1,14 +1,12 @@
 "use client";
+import BarChart from "@/components/BarChart";
+import Table from "@/components/Table";
 import BG from "@/public/img/Smelter-1024x576.jpg";
-import MONEY_INFRA from "@/public/img/f2.webp";
 import logo from "@/public/img/logo.jpg";
-import METHODS from "@/public/img/metod.jpg";
-import { Button } from "@mantine/core";
 import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-import PieChart from "../../components/PieChart";
 import QuadrantAnalysis from "../../components/QuadrantAnalysis";
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -51,7 +49,8 @@ const quadrantData = [
 const pieLabels = ['B Pertambangan dan Penggalian', 'C Industri Pengolahan', 'F Konstruksi', 'A Pertanian,Kehutanan,dan Perikanan', 'G Perdagangan', 'Lainnya'];
 const pieDatasetLabel = 'PDRB';
 const pieData = [21.08, 6.47, 14.03, 22.95, 12.76, 4.89];
-
+const quadrantDataX = [...quadrantData].sort((a, b) => b.x - a.x);
+const quadrantDataY = [...quadrantData].sort((a, b) => b.y - a.y);
 export default function Home() {
   const router = useRouter(); // Initialize the useRouter hook
 
@@ -181,86 +180,16 @@ export default function Home() {
         <div className={`text-xl font-bold text-yellow-200 underline ${pacifico.className}`}>
           <Image alt="" src={logo} width={100} />
         </div>
-        <ul className="w-[500px] flex justify-between items-center">
-          <li className="font-semibold text-[#eaeaea]"><a href="#background">Latar Belakang</a></li>
-          <li className="font-semibold text-[#eaeaea]"><a href="#method">Metodologi</a></li>
-          <li className="font-semibold text-[#eaeaea]"><a href="#result1">Tujuan 1</a></li>
-          <li className="font-semibold text-[#eaeaea]"><a href="#result2">Tujuan 2</a></li>
+        <ul className="w-[600px] flex justify-between items-center">
+          <li className="font-semibold text-[#eaeaea]"><a href="/#background">Latar Belakang</a></li>
+          <li className="font-semibold text-[#eaeaea]"><a href="/#method">Metodologi</a></li>
+          <li className="font-semibold text-[#eaeaea]"><a href="/#result1">Tujuan 1</a></li>
+          <li className="font-semibold text-[#eaeaea]"><a href="/#result2">Tujuan 2</a></li>
+          <li className="font-semibold text-[#eaeaea]"><a href="/dashboard">Dashboard</a></li>
+          <li></li>
           <li></li>
         </ul>
       </motion.nav>
-
-      {/* Main Content */}
-      <section className="pt-[80px] pb-16 px-6 relative z-1">
-        <div className="relative top-[120px]">
-          <motion.div
-            className="relative left-[40%] sm:left-[25%]"
-            variants={textAnimate1}
-            initial="hidden"
-            animate="show"
-          >
-            {/* <motion.h1
-              className={`lg:text-[7.2rem] sm:text-5xl text-xl text-[#eaeaea] tracking-tight font-bold ${pacifico.className}`}
-              variants={textAnimate2}
-              custom={-120}
-            >
-              Forkestra
-            </motion.h1> */}
-          </motion.div>
-          <motion.div
-            className="relative left-0"
-            variants={textAnimate1}
-            initial="hidden"
-            animate="show"
-          >
-            <motion.h1
-              className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold`}
-              variants={textAnimate2}
-              custom={80}
-              style={{ fontSize: "70px" }}
-            >
-              Optimalisasi Aksessibilitas dan Konektivitas Smelter Nikel
-            </motion.h1>
-          </motion.div>
-          <motion.div>
-            <Button
-              style={{
-                backgroundColor: "blue",
-                borderRadius: "30px", // Make the button fully rounded
-                color: "white", // Set the text color to white
-                padding: "10px 20px", // Optional: Add padding to the button
-                border: "none", // Optional: Remove border if any
-                cursor: "pointer", // Optional: Change cursor to pointer
-              }}
-              onClick={handleDashboardClick}
-            >
-              Dashboard
-            </Button>
-          </motion.div>
-        </div>
-        <motion.div
-          className="flex sm:flex-row flex-col gap-6 mt-8"
-          variants={imageAnimate}
-          initial="hidden"
-          animate="show"
-        >
-          {/* Image components here */}
-        </motion.div>
-      </section>
-
-      {/* New Sections */}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <section className="py-16 px-6 z-1">
         <div className="max-w-4xl mx-auto">
          {/* <motion.div >
@@ -298,113 +227,48 @@ export default function Home() {
             </p>
           </motion.div> */}
           <motion.h2
-            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
+            className="pt-20 text-4xl font-bold text-yellow-200 mb-8 text-center"
             variants={textParagraph}
             initial="hidden"
             animate="show"
             id="background"
+            style={{justifyContent: 'center' }}
           >
-            Latar Belakang
+            Dashboard
           </motion.h2>
-          <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div style={{ textAlign: 'left' }}>
-                <h1></h1>
-                <p>
-                Sektor pertambangan merupakan salah satu <b>penopang utama</b> perkonomian Sulawesi Tenggara (21,08%)
-                </p>
-                <br />
-                <p>
-                Namun, potensi ekonomi dari sektor ini <b>belum sepenuhnya dilakukan hilirisasi ke dalam industri pengolahan</b>. Pengembangan industri pengolahan selain memberikan nilai tambah yang lebih besar juga memungkinkan memberikan <b><i>multiplier effect</i></b> seperti penciptaan lapangan pekerjaan.
-                </p>
-                <br />
-              </div>
-            </div>
-            <div style={{ width: '50%' }}>
-              <PieChart labels={pieLabels} datasetLabel={pieDatasetLabel} data={pieData} />
-            </div>
-            <br />
-          </motion.div>
-          <br />
-          <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column'}}>
-              <div>
-              <Image
-                alt=""
-                src={MONEY_INFRA}
-                width={"300"}
-              />
-              </div>
-            </div>
-            <div style={{ width: '50%' , justifyContent: 'center' ,textAlign: 'right' }} className="pt-16">
-              <p></p>
-              <p><b>Investasi infrastruktur transportasi</b> di wilayah pertambangan dapat <b>meningkatkan konektivitas</b> dan <b>pertumbuhan ekonomi</b> secara <b>signifikan</b> (Asian Development Bank)</p>
-              <p></p>
-            </div>
-            <br />
-          </motion.div>
 
-          <motion.h2
-            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
-            id="method"
-          >
-            Metodologi
-          </motion.h2>
-          <Image
-            alt=""
-            src={METHODS}
-            className="object-cover brightness-100"
-            style={{ width: "100%" }}
-          />
-          <motion.div className="pt-8">
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-            <br />
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-          </motion.div>
-          <motion.h2
-            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
-            id="result1"
-          >
-            Tujuan 1
-          </motion.h2>
-          <motion.div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <QuadrantAnalysis data={quadrantData} />
-            </div>
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg mt-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-          </motion.div>
-          <motion.h2
-            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
-            id="result2"
-          >
-            Tujuan 2
-          </motion.h2>
-          <motion.div>
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-            <iframe
-              src="https://oojn4.github.io/forkestra-bivariatemap"
+          <h2   className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg flex gap-2 justify-center items-center" >
+          Evaluasi Lokasi Industri Pengolahan Pertambangan
+          </h2>
+          
+          <iframe
+              src="https://oojn4.github.io/forkestra-webmap/"
               style={{ width: '100%', height: '600px', border: 'none' }}
               title="Dashboard"
               className="pt-8 rounded-lg"
             />
+            <br />
+        <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ textAlign: 'left' }}>
+              {/* <div> */}
+                <BarChart labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas" />
+              {/* </div> */}
+              </div>
+            </div>
+            <div style={{ width: '50%' }}>
+            <BarChart labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksessibilitas" />
+            </div>
+            <br />
           </motion.div>
+          <div className="flex flex-col rounded-lg">
+            <br />
+        <Table />
+        <br />
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+              <QuadrantAnalysis data={quadrantData} />
+            </div>
+        </div>
         </div>
       </section>
     </main>
