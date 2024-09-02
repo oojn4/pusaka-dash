@@ -30,7 +30,7 @@ const BarChart: React.FC<BarChartProps> = ({ labels, data, title }) => {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: title,
         data,
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
