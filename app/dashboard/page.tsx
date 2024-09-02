@@ -1,8 +1,8 @@
 "use client";
 import BarChart from "@/components/BarChart";
 import Table from "@/components/Table";
+import logo from "@/public/img/Network AI Team-3.png";
 import BG from "@/public/img/Smelter-1024x576.jpg";
-import logo from "@/public/img/logo.jpg";
 import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";

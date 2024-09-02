@@ -1,7 +1,7 @@
 "use client";
+import logo from "@/public/img/Network AI Team-3.png";
 import BG from "@/public/img/Smelter-1024x576.jpg";
 import MONEY_INFRA from "@/public/img/f2.webp";
-import logo from "@/public/img/logo.jpg";
 import METHODS from "@/public/img/metod.jpg";
 import { Button } from "@mantine/core";
 import { motion } from "framer-motion";
