@@ -34,7 +34,7 @@ const quadrantData = [
     { x: -23.71, y: 0.66345, label: 'PT TMM', status: 'Zona Padat' }
 ];
 const ITEMS_PER_PAGE = 5;
-const Table = () => {
+const TableLokasi = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [sortConfig, setSortConfig] = useState({ key: 'label', direction: 'asc' });
     const handleSort = (key: string) => {
@@ -165,4 +165,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default TableLokasi;

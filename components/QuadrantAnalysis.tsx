@@ -48,7 +48,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             // Assert the type of raw to DataPoint
             const dataPoint = tooltipItem.raw as DataPoint;
             const label = dataPoint.label;
-            return label ? `Perusahaan: ${label}` : '';
+            return label ? `${label}` : '';
           },
         },
       },

@@ -1,6 +1,7 @@
 "use client";
 import BarChart from "@/components/BarChart";
-import Table from "@/components/Table";
+import TableKabkot from "@/components/TableKabkot";
+import TableLokasi from "@/components/TableLokasi";
 import logo1 from "@/public/img/forkestra.png";
 import logo from "@/public/img/Network AI Team-3.png";
 import BG from "@/public/img/Smelter-1024x576.jpg";
@@ -8,11 +9,14 @@ import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import QuadrantAnalysis from "../../components/QuadrantAnalysis";
+
 const pacifico = Pacifico({
   subsets: ["latin"],
   weight: "400",
 });
+
 const quadrantData = [
   { x: -18.13, y: 0.00686, label: 'PT SSU' },
   { x: -20.34, y: 0.08891, label: 'PT AF' },
@@ -47,114 +51,41 @@ const quadrantData = [
   { x: -23.71, y: 0.66345, label: 'PT TMM' }
 ];
 
+const kabkotData = [
+  { x: -24.36967, y: 0.45456701, label: 'Kabupaten Buton', status: 'Zona Terbatas' },
+  { x: -24.84098, y: 0.65483124, label: 'Kabupaten Muna', status: 'Zona Terbatas' },
+  { x: -22.12250, y: 0.47721178, label: 'Kabupaten Konawe', status: 'Zona Terbatas' },
+  { x: -20.18453, y: 0.69797817, label: 'Kabupaten Kolaka', status: 'Zona Terbatas' },
+  { x: -22.00859, y: 0.86215093, label: 'Kabupaten Konawe Selatan', status: 'Zona Terbatas' },
+  { x: -19.27890, y: 0.41286409, label: 'Kabupaten Bombana', status: 'Zona Terbatas' },
+  { x: -28.03653, y: 0.27188396, label: 'Kabupaten Wakatobi', status: 'Zona Terisolasi' },
+  { x: -18.17569, y: 0.44885879, label: 'Kabupaten Kolaka Utara', status: 'Zona Terbatas' },
+  { x: -23.61369, y: 0.32681904, label: 'Kabupaten Buton Utara', status: 'Zona Terbatas' },
+  { x: -20.20635, y: 0.31528563, label: 'Kabupaten Konawe Utara', status: 'Zona Terbatas' },
+  { x: -20.96893, y: 0.38844034, label: 'Kabupaten Kolaka Timur', status: 'Zona Terbatas' },
+  { x: -26.73254, y: 0.37360547, label: 'Kabupaten Konawe Kepulauan', status: 'Zona Terbatas' },
+  { x: -23.50126, y: 0.92441280, label: 'Kabupaten Muna Barat', status: 'Zona Terbatas' },
+  { x: -21.85805, y: 0.68017289, label: 'Kabupaten Buton Tengah', status: 'Zona Terbatas' },
+  { x: -25.28948, y: 0.47680299, label: 'Kabupaten Buton Selatan', status: 'Zona Terbatas' },
+  { x: -23.29112, y: 6.19170773, label: 'Kota Kendari', status: 'Zona Padat' },
+  { x: -25.97746, y: 2.09533925, label: 'Kota Baubau', status: 'Zona Padat' }
+];
+
 const pieLabels = ['B Pertambangan dan Penggalian', 'C Industri Pengolahan', 'F Konstruksi', 'A Pertanian,Kehutanan,dan Perikanan', 'G Perdagangan', 'Lainnya'];
 const pieDatasetLabel = 'PDRB';
 const pieData = [21.08, 6.47, 14.03, 22.95, 12.76, 4.89];
+
 const quadrantDataX = [...quadrantData].sort((a, b) => b.x - a.x);
 const quadrantDataY = [...quadrantData].sort((a, b) => b.y - a.y);
+const kabkotDataX = [...kabkotData].sort((a, b) => b.x - a.x);
+const kabkotDataY = [...kabkotData].sort((a, b) => b.y - a.y);
+
 export default function Home() {
   const router = useRouter(); // Initialize the useRouter hook
+  const [activeTab, setActiveTab] = useState("lokasi"); // State to manage active tab
 
   const handleDashboardClick = () => {
     router.push('/dashboard'); // Navigate to the /dashboard page
-  };
-  const bgAnimate = {
-    hidden: {
-      clipPath: 'polygon(21% 27%, 77% 26%, 77% 77%, 21% 77%)',
-    },
-    show: {
-      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-      transition: {
-        ease: 'easeInOut',
-        duration: 0.8,
-        delay: 1,
-      }
-    }
-  }
-
-  const textAnimate1 = {
-    hidden: {
-      y: '100%',
-      opacity: 0,
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        ease: 'easeInOut',
-        duration: 0.8,
-        staggerChildren: 0.4,
-        delayChildren: 1,
-      }
-    }
-  }
-
-  const textAnimate2 = {
-    hidden: {
-      x: "0"
-    },
-    show: (i: any) => ({
-      x: i,
-      transition: {
-        ease: "easeInOut",
-        duration: 0.8,
-      }
-    })
-  };
-
-  const imageAnimate = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.6,
-        delayChildren: 3,
-        ease: 'easeInOut'
-      }
-    }
-  };
-
-  const imageAnimateChild = {
-    hidden: {
-      x: 100,
-      opacity: 0
-    },
-    show: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const navAnimate = {
-    hidden: {
-      y: '-110%'
-    },
-    show: {
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 60,
-        delay: 1.5
-      }
-    }
-  };
-
-  const textParagraph = {
-    hidden: {
-      y: '-100%',
-      opacity: 0,
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 60,
-        delay: 2.8,
-      },
-    },
   };
 
   return (
@@ -174,15 +105,12 @@ export default function Home() {
       {/* Fixed Navbar */}
       <motion.nav
         className="fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-md flex sm:flex-row flex-col justify-between py-3 items-center z-10"
-        variants={navAnimate}
-        initial="hidden"
-        animate="show"
       >
         <div className={`text-xl font-bold text-yellow-200 underline ${pacifico.className}`}>
-        <div className={`w-[600px] flex items-center`}>
-          <Image alt="" src={logo} width={100} />
-          <Image alt="" src={logo1} height={10}  width={70} />
-        </div>
+          <div className={`w-[600px] flex items-center`}>
+            <Image alt="" src={logo} width={100} />
+            <Image alt="" src={logo1} height={10} width={70} />
+          </div>
         </div>
         <ul className="w-[600px] flex justify-between items-center">
           <li className="font-semibold text-[#eaeaea]"><a href="/">Penjelasan Umum</a></li>
@@ -191,85 +119,91 @@ export default function Home() {
           <li></li>
         </ul>
       </motion.nav>
+
       <section className="py-16 px-6 z-1">
         <div className="max-w-4xl mx-auto">
-         {/* <motion.div >
-          <iframe
-              src="https://oojn4.github.io/forkestra-webmap/"
-              style={{ width: '100%', height: '600px', border: 'none' }}
-              title="Dashboard"
-              className="pt-8 rounded-lg"
-            />
-          </motion.div>
-          <motion.div className="pt-8">
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-            <br />
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-          </motion.div>
-          <motion.div >
-          <iframe
-              src="https://oojn4.github.io/forkestra-ntlmaps/"
-              style={{ width: '100%', height: '600px', border: 'none' }}
-              title="Dashboard"
-              className="pt-8 rounded-lg"
-            />
-          </motion.div>
-          <motion.div className="pt-8">
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-            <br />
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-          </motion.div> */}
           <motion.h2
             className="pt-20 text-4xl font-bold text-yellow-200 mb-8 text-center"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
             id="background"
-            style={{justifyContent: 'center' }}
+            style={{ justifyContent: 'center' }}
           >
             Dashboard
           </motion.h2>
 
-          <h2   className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg flex gap-2 justify-center items-center" >
-          Evaluasi Lokasi Industri Pengolahan Pertambangan
-          </h2>
-          
-          <iframe
-              src="https://oojn4.github.io/forkestra-webmap/"
-              style={{ width: '100%', height: '600px', border: 'none' }}
-              title="Dashboard"
-              className="pt-8 rounded-lg"
-            />
-            <br />
-        <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div style={{ textAlign: 'left' }}>
-              {/* <div> */}
-                <BarChart labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas" />
-              {/* </div> */}
+          {/* Tabs */}
+          <div className="flex justify-center mb-6">
+            <button
+              className={`px-4 py-2 font-semibold ${activeTab === "lokasi" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
+              onClick={() => setActiveTab("lokasi")}
+            >
+              Evaluasi Lokasi Industri Pengolahan Pertambangan
+            </button>
+            <button
+              className={`px-4 py-2 font-semibold ${activeTab === "kabupaten" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
+              onClick={() => setActiveTab("kabupaten")}
+            >
+              Evaluasi Kabupaten/Kota
+            </button>
+          </div>
+
+          {/* Tab Content */}
+          {activeTab === "lokasi" ? (
+            <div>
+              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Evaluasi Lokasi Industri Pengolahan Pertambangan</h2>
+              
+              <iframe
+                src="https://oojn4.github.io/forkestra-webmap/"
+                style={{ width: '100%', height: '600px', border: 'none' }}
+                title="Dashboard"
+                className="pt-8 rounded-lg"
+              />
+              <br />
+              <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <BarChart labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas" />
+                </div>
+                <div style={{ width: '50%' }}>
+                  <BarChart labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksessibilitas" />
+                </div>
+              </motion.div>
+              <div className="flex flex-col rounded-lg">
+                <br />
+                <TableLokasi />
+                <br />
+                <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+                  <QuadrantAnalysis data={quadrantData} />
+                </div>
               </div>
             </div>
-            <div style={{ width: '50%' }}>
-            <BarChart labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksessibilitas" />
+          ) : (
+            <div>
+              {/* Content for Evaluasi Kabupaten/Kota */}
+              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Evaluasi Kabupaten/Kota</h2>
+              <iframe
+                src="https://oojn4.github.io/forkestra-bivariatemap"
+                style={{ width: '100%', height: '600px', border: 'none' }}
+                title="Dashboard"
+                className="pt-8 rounded-lg"
+              />
+              <br />
+              <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <BarChart labels={kabkotDataX.map(item => item.label)} data={kabkotDataX.map(item => -item.x)} title="Konektivitas" />
+                </div>
+                <div style={{ width: '50%' }}>
+                  <BarChart labels={kabkotDataY.map(item => item.label)} data={kabkotDataY.map(item => item.y)} title="Aksessibilitas" />
+                </div>
+              </motion.div>
+              <div className="flex flex-col rounded-lg">
+                <br />
+                <TableKabkot />
+                <br />
+                <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+                  <QuadrantAnalysis data={kabkotData} />
+                </div>
+              </div>
             </div>
-            <br />
-          </motion.div>
-          <div className="flex flex-col rounded-lg">
-            <br />
-        <Table />
-        <br />
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <QuadrantAnalysis data={quadrantData} />
-            </div>
-        </div>
+          )}
         </div>
       </section>
     </main>
