@@ -11,6 +11,7 @@ interface DataPoint {
   x: number;
   y: number;
   label: string;
+  kabupaten_kota:string;
 }
 
 const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
@@ -18,7 +19,8 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
   const points = data.map(point => ({
     x: point.x,
     y: point.y,
-    label: point.label
+    label: point.label,
+    kabupaten_kota: point.kabupaten_kota
   }));
 
   // Define the data and options for the scatter plot
@@ -48,7 +50,11 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             // Assert the type of raw to DataPoint
             const dataPoint = tooltipItem.raw as DataPoint;
             const label = dataPoint.label;
-            return label ? `${label}` : '';
+            const kabkot = dataPoint.kabupaten_kota;
+            return [
+              `Industri: ${label}`,
+              `Kabupaten/Kota: ${kabkot}`
+            ];
           },
         },
       },
@@ -120,7 +126,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             padding: 6,
             xAdjust: -10,
             yAdjust: 10,
-            content: 'Kuadran III: Zona Terbatas',
+            content: 'Kuadran IV: Zona Terisolasi',
           },
           quadrantIV: {
             type: 'label',
@@ -137,7 +143,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             padding: 6,
             xAdjust: 10,
             yAdjust: 10,
-            content: 'Kuadran IV: Zona Terisolasi',
+            content: 'Kuadran III: Zona Terbatas',
           },
         },
       },
@@ -146,6 +152,11 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
       x: {
         type: 'linear',
         position: 'bottom',
+        title: {
+          display: true,
+          text: 'Konektivitas',  // Add your Y axis label here
+          color: '#fff',
+        },
         grid: {
           color: 'rgba(255, 255, 255, 0.2)',
         },
@@ -154,6 +165,11 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
         },
       },
       y: {
+        title: {
+          display: true,
+          text: 'Aksesibilitas',  // Add your Y axis label here
+          color: '#fff',
+        },
         grid: {
           color: 'rgba(255, 255, 255, 0.2)',
         },

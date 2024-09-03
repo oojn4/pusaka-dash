@@ -16,37 +16,37 @@ const pacifico = Pacifico({
   weight: "400",
 });
 const quadrantData = [
-  { x: -18.13, y: 0.00686, label: 'PT SSU' },
-  { x: -20.34, y: 0.08891, label: 'PT AF' },
-  { x: -20.34, y: 0.08891, label: 'PT AP' },
-  { x: -20.54, y: 0.08519, label: 'PT BDM' },
-  { x: -19.69, y: 0.10238, label: 'PT CMP' },
-  { x: -20.26, y: 0.08961, label: 'PT DRI' },
-  { x: -20.15, y: 0.09042, label: 'PT PMS' },
-  { x: -17.20, y: 0.17069, label: 'PT PRT' },
-  { x: -23.05, y: 0.03578, label: 'PT VDNI' },
-  { x: -22.33, y: 0.05348, label: 'PT BSI' },
-  { x: -22.43, y: 0.05271, label: 'PT IMN' },
-  { x: -23.23, y: 0.05299, label: 'PT MMM' },
-  { x: -23.14, y: 0.05299, label: 'PT MMI' },
-  { x: -22.20, y: 0.05146, label: 'PT WIM' },
-  { x: -19.67, y: 0.07498, label: 'PT BP' },
-  { x: -21.94, y: 0.05066, label: 'PT BKA' },
-  { x: -21.11, y: 0.05762, label: 'PT CJ' },
-  { x: -19.67, y: 0.07498, label: 'PT CDS' },
-  { x: -19.60, y: 0.07833, label: 'PT KKU' },
-  { x: -19.64, y: 0.07485, label: 'PT KNN' },
-  { x: -21.10, y: 0.05618, label: 'PT MPR' },
-  { x: -19.63, y: 0.07522, label: 'PT SMA' },
-  { x: -19.63, y: 0.07524, label: 'PT SPR' },
-  { x: -23.48, y: 0.67455, label: 'BDE' },
-  { x: -23.72, y: 0.66248, label: 'PT BMR' },
-  { x: -23.32, y: 0.68691, label: 'PT MK' },
-  { x: -23.73, y: 0.66938, label: 'PT NPM' },
-  { x: -23.75, y: 0.66226, label: 'PT PS' },
-  { x: -23.65, y: 0.66774, label: 'PT SMM' },
-  { x: -23.66, y: 0.66726, label: 'PT SR' },
-  { x: -23.71, y: 0.66345, label: 'PT TMM' }
+  { x: -18.13, y: 0.00686, label: 'PT SSU', kabupaten_kota: 'Kabupaten Bombana' },
+  { x: -20.34, y: 0.08891, label: 'PT AF', kabupaten_kota: 'Kabupaten Kolaka' },
+  { x: -20.34, y: 0.08891, label: 'PT AP', kabupaten_kota: 'Kabupaten Kolaka' },
+  { x: -20.54, y: 0.08519, label: 'PT BDM', kabupaten_kota: 'Kabupaten Kolaka' },
+  { x: -19.69, y: 0.10238, label: 'PT CMP', kabupaten_kota: 'Kabupaten Kolaka' },
+  { x: -20.26, y: 0.08961, label: 'PT DRI', kabupaten_kota: 'Kabupaten Kolaka' },
+  { x: -20.15, y: 0.09042, label: 'PT PMS', kabupaten_kota: 'Kabupaten Kolaka' },
+  { x: -17.20, y: 0.17069, label: 'PT PRT', kabupaten_kota: 'Kabupaten Kolaka Utara' },
+  { x: -23.05, y: 0.03578, label: 'PT VDNI', kabupaten_kota: 'Kabupaten Konawe' },
+  { x: -22.33, y: 0.05348, label: 'PT BSI', kabupaten_kota: 'Kabupaten Konawe Selatan' },
+  { x: -22.23, y: 0.05271, label: 'PT IMN', kabupaten_kota: 'Kabupaten Konawe Selatan' },
+  { x: -22.20, y: 0.05299, label: 'PT MMM', kabupaten_kota: 'Kabupaten Konawe Selatan' },
+  { x: -22.20, y: 0.05299, label: 'PT MMI', kabupaten_kota: 'Kabupaten Konawe Selatan' },
+  { x: -22.20, y: 0.05146, label: 'PT WIM', kabupaten_kota: 'Kabupaten Konawe Selatan' },
+  { x: -19.67, y: 0.07498, label: 'PT BP', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -21.94, y: 0.05066, label: 'PT BKA', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -21.11, y: 0.05762, label: 'PT CJ', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -19.67, y: 0.07498, label: 'PT CDS', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -19.60, y: 0.07833, label: 'PT KKU', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -19.64, y: 0.07485, label: 'PT KNN', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -21.10, y: 0.05618, label: 'PT MPR', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -19.63, y: 0.07522, label: 'PT SMA', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -19.63, y: 0.07524, label: 'PT SPR', kabupaten_kota: 'Kabupaten Konawe Utara' },
+  { x: -23.48, y: 0.67455, label: 'BDE', kabupaten_kota: 'Kota Kendari' },
+  { x: -23.72, y: 0.66248, label: 'PT BMR', kabupaten_kota: 'Kota Kendari' },
+  { x: -23.32, y: 0.68691, label: 'PT MK', kabupaten_kota: 'Kota Kendari' },
+  { x: -23.73, y: 0.66938, label: 'PT NPM', kabupaten_kota: 'Kota Kendari' },
+  { x: -23.75, y: 0.66226, label: 'PT PS', kabupaten_kota: 'Kota Kendari' },
+  { x: -23.65, y: 0.66774, label: 'PT SMM', kabupaten_kota: 'Kota Kendari' },
+  { x: -23.66, y: 0.66726, label: 'PT SR', kabupaten_kota: 'Kota Kendari' },
+  { x: -23.71, y: 0.66345, label: 'PT TMM', kabupaten_kota: 'Kota Kendari' },
 ];
 
 const pieLabels = ['B Pertambangan dan Penggalian', 'C Industri Pengolahan', 'F Konstruksi', 'A Pertanian,Kehutanan,dan Perikanan', 'G Perdagangan', 'Lainnya'];
@@ -370,11 +370,11 @@ export default function Home() {
           />
           <motion.div className="pt-8">
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+              Penelitian ini memanfaatkan data dari OpenStreetMap (OSM), Google Maps, Google Earth Engine (GEE), dan Kementerian Perhubungan (Kemenhub) untuk menganalisis konektivitas dan aksesibilitas industri pengolahan nikel di Sulawesi Tenggara. Infrastruktur jalan diekstraksi menggunakan OSMnx, dan variabel seperti panjang jalan dan waktu tempuh dihitung melalui Google Maps API. Data satelit SNPP-VIIRS digunakan untuk memverifikasi aktivitas malam hari. 
             </p>
             <br />
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            Algoritma Dijkstra digunakan untuk perhitungan rute terpendek. Indeks konektivitas dan aksesibilitas dihitung dan divisualisasikan dalam dashboard interaktif berbasis Next.js, membantu pemerintah dalam evaluasi dan optimalisasi industri.
             </p>
           </motion.div>
           <motion.h2
@@ -384,14 +384,14 @@ export default function Home() {
             animate="show"
             id="result1"
           >
-            Tujuan 1
+            Tujuan 1: Evaluasi Konektivitas dan Aksesibilitas Industri Pengolahan Pertambangan 
           </motion.h2>
           <motion.div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <QuadrantAnalysis data={quadrantData} />
             </div>
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg mt-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            Hasil analisis menunjukkan bahwa industri pengolahan pertambangan di Sulawesi Tenggara <b> tidak ada yang berada di Zona Optimum</b>. Sebagian besar industri tersebar di Zona Padat, Terbatas, dan Terisolasi, menunjukkan tantangan infrastruktur yang signifikan. Oleh karena itu, kebijakan harus difokuskan pada peningkatan konektivitas dan aksesibilitas, terutama di zona terbatas dan terisolasi, melalui pembangunan jalan dan transportasi yang lebih baik.
             </p>
           </motion.div>
           <motion.h2
@@ -401,11 +401,11 @@ export default function Home() {
             animate="show"
             id="result2"
           >
-            Tujuan 2
+            Tujuan 2: Pemetaan Wilayah Potensi Pengembangan Perusahaan Industri Pengolahan Pertambangan
           </motion.h2>
           <motion.div>
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
+            Dengan membandingkan antara konektivitas dan aksesibilitas pada pusat pertumbuhan ekonomi setiap kabupaten atau kota di Provinsi Sulawesi Tenggara. Wilayah kabupaten atau kota dengan warna semakin gelap menunjukkan bahwa wilayah tersebut cocok untuk direkomendasikan sebagai wilayah untuk pengembangan perusahaan industri pengolahan pertambangan karena memiliki konektivitas dan aksesibilitas yang tinggi.
             </p>
             <iframe
               src="https://oojn4.github.io/forkestra-bivariatemap"

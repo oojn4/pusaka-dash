@@ -88,9 +88,9 @@ const TableKabkot = () => {
                   {sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
-              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              {/* <th className="min-w-[120px] px-4 py-4 font-medium text-white">
                 Status
-              </th>
+              </th> */}
             </tr>
           </thead>
           <tbody>
@@ -111,7 +111,7 @@ const TableKabkot = () => {
                     {packageItem.y}
                   </p>
                 </td>
-                <td className="border-b border-gray-700 px-4 py-5">
+                {/* <td className="border-b border-gray-700 px-4 py-5">
                   <p
                     className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
                       packageItem.status === "Zona Optimum"
@@ -123,7 +123,7 @@ const TableKabkot = () => {
                   >
                     {packageItem.status}
                   </p>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>
