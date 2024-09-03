@@ -1,6 +1,7 @@
 "use client";
 import logo from "@/public/img/Network AI Team-3.png";
 import BG from "@/public/img/Smelter-1024x576.jpg";
+import BIVARIATE from "@/public/img/bivariate_map.jpg";
 import MONEY_INFRA from "@/public/img/f2.webp";
 import logo1 from "@/public/img/forkestra.png";
 import METHODS from "@/public/img/metod.jpg";
@@ -407,12 +408,19 @@ export default function Home() {
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg">
             Dengan membandingkan antara konektivitas dan aksesibilitas pada pusat pertumbuhan ekonomi setiap kabupaten atau kota di Provinsi Sulawesi Tenggara. Wilayah kabupaten atau kota dengan warna semakin gelap menunjukkan bahwa wilayah tersebut cocok untuk direkomendasikan sebagai wilayah untuk pengembangan perusahaan industri pengolahan pertambangan karena memiliki konektivitas dan aksesibilitas yang tinggi.
             </p>
-            <iframe
+            {/* <iframe
               src="https://oojn4.github.io/forkestra-bivariatemap"
               style={{ width: '100%', height: '600px', border: 'none' }}
               title="Dashboard"
               className="pt-8 rounded-lg"
-            />
+            /> */}
+            <br />
+            <Image
+            alt=""
+            src={BIVARIATE}
+            className="object-cover brightness-100"
+            style={{ width: "100%" }}
+          />
           </motion.div>
         </div>
       </section>

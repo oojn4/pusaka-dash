@@ -2,6 +2,7 @@
 import BarChart from "@/components/BarChart";
 import TableKabkot from "@/components/TableKabkot";
 import TableLokasi from "@/components/TableLokasi";
+import BIVARIATE from "@/public/img/bivariate_map.jpg";
 import logo1 from "@/public/img/forkestra.png";
 import logo from "@/public/img/Network AI Team-3.png";
 import BG from "@/public/img/Smelter-1024x576.jpg";
@@ -180,11 +181,18 @@ export default function Home() {
             <div>
               {/* Content for Evaluasi Kabupaten/Kota */}
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Potensi Pengembangan Perusahaan Industri Pengolahan Pertambangan</h2>
-              <iframe
+              {/* <iframe
                 src="https://oojn4.github.io/forkestra-bivariatemap"
                 style={{ width: '100%', height: '600px', border: 'none' }}
                 title="Dashboard"
                 className="pt-8 rounded-lg"
+              /> */}
+              <br />
+              <Image
+                alt=""
+                src={BIVARIATE}
+                className="object-cover brightness-100"
+                style={{ width: "100%" }}
               />
               <br />
               <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
