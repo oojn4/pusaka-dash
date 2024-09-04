@@ -406,7 +406,7 @@ export default function Home() {
           </motion.h2>
           <motion.div>
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg">
-            Dengan membandingkan antara konektivitas dan aksesibilitas pada pusat pertumbuhan ekonomi setiap kabupaten atau kota di Provinsi Sulawesi Tenggara. Wilayah kabupaten atau kota dengan warna semakin gelap menunjukkan bahwa wilayah tersebut cocok untuk direkomendasikan sebagai wilayah untuk pengembangan perusahaan industri pengolahan pertambangan karena memiliki konektivitas dan aksesibilitas yang tinggi.
+            Dengan membandingkan antara konektivitas dan aksesibilitas pada pusat pertumbuhan ekonomi setiap kabupaten atau kota di Provinsi Sulawesi Tenggara. Wilayah kabupaten atau kota dengan warna <b>semakin gelap</b> menunjukkan bahwa wilayah tersebut <b>cocok untuk direkomendasikan sebagai wilayah untuk pengembangan perusahaan industri pengolahan pertambangan </b> karena memiliki konektivitas dan aksesibilitas yang tinggi.
             </p>
             {/* <iframe
               src="https://oojn4.github.io/forkestra-bivariatemap"
