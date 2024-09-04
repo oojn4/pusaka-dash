@@ -84,7 +84,7 @@ const TableKabkot = () => {
                   onClick={() => handleSort('y')}
                   className={`flex items-center ${sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  Aksesibilitas (Km/ Km^2)
+                  Aksesibilitas (Km/ Km²)
                   {sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>

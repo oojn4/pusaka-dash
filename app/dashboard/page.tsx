@@ -165,7 +165,7 @@ export default function Home() {
                   <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas (menit/ 10 Km)" />
                 </div>
                 <div style={{ width: '50%' }}>
-                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km^2)" />
+                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km²)" />
                 </div>
               </motion.div>
               <div className="flex flex-col rounded-lg">
@@ -200,7 +200,7 @@ export default function Home() {
                   <BarChart labels={kabkotDataX.map(item => item.label)} data={kabkotDataX.map(item => -item.x)} title="Konektivitas (menit/ 10 Km)" />
                 </div>
                 <div style={{ width: '50%' }}>
-                  <BarChart labels={kabkotDataY.map(item => item.label)} data={kabkotDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km^2)" />
+                  <BarChart labels={kabkotDataY.map(item => item.label)} data={kabkotDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km²)" />
                 </div>
               </motion.div>
               <div className="flex flex-col rounded-lg">

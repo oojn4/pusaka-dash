@@ -167,7 +167,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
       y: {
         title: {
           display: true,
-          text: 'Aksesibilitas (km/km^2)',  // Add your Y axis label here
+          text: "Aksesibilitas (Km/ Km²)",  // Add your Y axis label here
           color: '#fff',
         },
         grid: {
