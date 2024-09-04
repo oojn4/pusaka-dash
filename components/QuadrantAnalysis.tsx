@@ -154,7 +154,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
         position: 'bottom',
         title: {
           display: true,
-          text: 'Konektivitas',  // Add your Y axis label here
+          text: 'Konektivitas (menit/ 10 Km)',  // Add your Y axis label here
           color: '#fff',
         },
         grid: {
@@ -167,7 +167,7 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
       y: {
         title: {
           display: true,
-          text: 'Aksesibilitas',  // Add your Y axis label here
+          text: 'Aksesibilitas (km/km^2)',  // Add your Y axis label here
           color: '#fff',
         },
         grid: {

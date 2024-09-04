@@ -221,7 +221,7 @@ export default function Home() {
               custom={80}
               style={{ fontSize: "70px" }}
             >
-              Optimalisasi Aksessibilitas dan Konektivitas Smelter Nikel
+              Optimalisasi Aksesibilitas dan Konektivitas Smelter Nikel
             </motion.h1>
           </motion.div>
           <br /><br />

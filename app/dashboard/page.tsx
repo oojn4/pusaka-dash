@@ -162,10 +162,10 @@ export default function Home() {
               <br />
               <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <BarChart labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas" />
+                  <BarChart labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas (menit/ 10 Km)" />
                 </div>
                 <div style={{ width: '50%' }}>
-                  <BarChart labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksessibilitas" />
+                  <BarChart labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km^2)" />
                 </div>
               </motion.div>
               <div className="flex flex-col rounded-lg">
@@ -197,10 +197,10 @@ export default function Home() {
               <br />
               <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <BarChart labels={kabkotDataX.map(item => item.label)} data={kabkotDataX.map(item => -item.x)} title="Konektivitas" />
+                  <BarChart labels={kabkotDataX.map(item => item.label)} data={kabkotDataX.map(item => -item.x)} title="Konektivitas (menit/ 10 Km)" />
                 </div>
                 <div style={{ width: '50%' }}>
-                  <BarChart labels={kabkotDataY.map(item => item.label)} data={kabkotDataY.map(item => item.y)} title="Aksessibilitas" />
+                  <BarChart labels={kabkotDataY.map(item => item.label)} data={kabkotDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km^2)" />
                 </div>
               </motion.div>
               <div className="flex flex-col rounded-lg">
