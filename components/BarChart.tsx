@@ -53,13 +53,13 @@ const BarChart: React.FC<BarChartProps> = ({ labels, data, title, kabupaten_kota
         text: title || '',
       },
       tooltip: {
+        displayColors: false,
         callbacks: {
           label: function (tooltipItem:any) {
             const label = labels[tooltipItem.dataIndex];
             const kabkot = kabupaten_kota? kabupaten_kota[tooltipItem.dataIndex]:'';
             return [
-              `${label}`,
-              kabkot?`${kabkot}`:''
+              label? kabkot?`${kabkot}`: '':`${label}`
             ];
           }
         }
