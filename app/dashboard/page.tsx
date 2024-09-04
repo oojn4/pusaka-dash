@@ -162,10 +162,10 @@ export default function Home() {
               <br />
               <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <BarChart labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas (menit/ 10 Km)" />
+                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas (menit/ 10 Km)" />
                 </div>
                 <div style={{ width: '50%' }}>
-                  <BarChart labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km^2)" />
+                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km^2)" />
                 </div>
               </motion.div>
               <div className="flex flex-col rounded-lg">

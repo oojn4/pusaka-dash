@@ -1,11 +1,11 @@
 import {
-    BarElement,
-    CategoryScale,
-    Chart as ChartJS,
-    Legend,
-    LinearScale,
-    Title,
-    Tooltip,
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
+  Title,
+  Tooltip,
 } from 'chart.js';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
@@ -23,9 +23,10 @@ interface BarChartProps {
   labels: string[];
   data: number[];
   title?: string;
+  kabupaten_kota?: string[];
 }
 
-const BarChart: React.FC<BarChartProps> = ({ labels, data, title }) => {
+const BarChart: React.FC<BarChartProps> = ({ labels, data, title, kabupaten_kota }) => {
   const chartData = {
     labels,
     datasets: [
@@ -51,18 +52,26 @@ const BarChart: React.FC<BarChartProps> = ({ labels, data, title }) => {
         display: !!title,
         text: title || '',
       },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem:any) {
+            const label = labels[tooltipItem.dataIndex];
+            const kabkot = kabupaten_kota? kabupaten_kota[tooltipItem.dataIndex]:'';
+            return [
+              `${label}`,
+              kabkot?`${kabkot}`:''
+            ];
+          }
+        }
+      }
     },
   };
 
   return (
-    <>
-    
-    <div style={{ height: `300px`, width: '100%' }}>
-      <Bar data={chartData} options={options}/>
+    <div style={{ height: '300px', width: '100%' }}>
+      <Bar data={chartData} options={options} />
     </div>
-    </>
-  )
-
+  );
 };
 
 export default BarChart;
