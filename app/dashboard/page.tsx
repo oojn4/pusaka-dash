@@ -99,7 +99,7 @@ const gtfpData = [
 ];
 
 // Dapatkan unique kabupaten/kota dan tahun untuk dropdown
-const uniqueKabupatenKota = [...new Set(gtfpData.map(item => item.kabupaten_kota))];
+const uniqueKabupatenKota = [...new Set(gtfpData.map(item => item.provinsi))];
 const uniqueTahun = [...new Set(gtfpData.map(item => item.tahun))];
 
 export default function Home() {
@@ -183,7 +183,7 @@ export default function Home() {
           {/* Filter Dropdowns */}
           <div className="flex justify-between mb-6">
             <div>
-              <label className="text-[#eaeaea]">Kabupaten/Kota: </label>
+              <label className="text-[#eaeaea]">Provinsi: </label>
               <select
                 className="px-4 py-2 bg-gray-800 text-yellow-200"
                 value={selectedKabupaten}
