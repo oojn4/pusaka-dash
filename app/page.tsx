@@ -11,7 +11,6 @@ import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import PieChart from "../components/PieChart";
-import QuadrantAnalysis from "../components/QuadrantAnalysis1";
 const pacifico = Pacifico({
   subsets: ["latin"],
   weight: "400",
@@ -389,7 +388,7 @@ export default function Home() {
           </motion.h2>
           <motion.div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <QuadrantAnalysis data={quadrantData} />
+              {/* <QuadrantAnalysis1 data={quadrantData} /> */}
             </div>
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg mt-6">
             Hasil analisis menunjukkan bahwa industri pengolahan pertambangan di Sulawesi Tenggara <b> tidak ada yang berada di Zona Optimum</b>. Sebagian besar industri tersebar di Zona Padat, Terbatas, dan Terisolasi, menunjukkan tantangan infrastruktur yang signifikan. Oleh karena itu, kebijakan harus difokuskan pada peningkatan konektivitas dan aksesibilitas, terutama di zona terbatas dan terisolasi, melalui pembangunan jalan dan transportasi yang lebih baik.
