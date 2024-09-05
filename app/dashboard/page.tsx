@@ -2,9 +2,9 @@
 import BarChart from "@/components/BarChart";
 import QuadrantAnalysis from "@/components/QuadrantAnalysis";
 import TableLokasi from "@/components/TableLokasi";
+import BG from "@/public/img/cloud-forest-landscape.jpg";
 import logo1 from "@/public/img/forkestra.png";
 import logo from "@/public/img/Network AI Team-3.png";
-import BG from "@/public/img/Smelter-1024x576.jpg";
 import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
