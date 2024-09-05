@@ -1,8 +1,7 @@
 "use client";
 import BarChart from "@/components/BarChart";
-import TableKabkot from "@/components/TableKabkot";
+import QuadrantAnalysis from "@/components/QuadrantAnalysis";
 import TableLokasi from "@/components/TableLokasi";
-import BIVARIATE from "@/public/img/bivariate_map.jpg";
 import logo1 from "@/public/img/forkestra.png";
 import logo from "@/public/img/Network AI Team-3.png";
 import BG from "@/public/img/Smelter-1024x576.jpg";
@@ -11,7 +10,6 @@ import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import QuadrantAnalysis from "../../components/QuadrantAnalysis";
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -138,20 +136,20 @@ export default function Home() {
               className={`px-4 py-2 font-semibold ${activeTab === "lokasi" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
               onClick={() => setActiveTab("lokasi")}
             >
-              Evaluasi Lokasi Industri Pengolahan Pertambangan
+              Green Total Factor Productivity
             </button>
             <button
               className={`px-4 py-2 font-semibold ${activeTab === "kabupaten" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
               onClick={() => setActiveTab("kabupaten")}
             >
-              Kabupaten/Kota Potensi Pengembangan Perusahaan Industri Pengolahan Pertambangan
+              Analisis Regresi
             </button>
           </div>
 
           {/* Tab Content */}
           {activeTab === "lokasi" ? (
             <div>
-              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Evaluasi Lokasi Industri Pengolahan Pertambangan</h2>
+              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Peta Estimasi GTFP</h2>
               
               <iframe
                 src="https://oojn4.github.io/forkestra-webmap/"
@@ -161,52 +159,44 @@ export default function Home() {
               />
               <br />
               <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Konektivitas (menit/ 10 Km)" />
+                <div style={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Indeks Kualitas Air" />
                 </div>
-                <div style={{ width: '50%' }}>
-                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km²)" />
+                <div style={{ width: '30%' }}>
+                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Indeks Kualitas Udara" />
+                </div>
+                <div style={{ width: '30%' }}>
+                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Konsumsi Listrik" />
                 </div>
               </motion.div>
               <div className="flex flex-col rounded-lg">
                 <br />
                 <TableLokasi />
                 <br />
-                <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <QuadrantAnalysis data={quadrantData} />
-                </div>
               </div>
             </div>
           ) : (
             <div>
               {/* Content for Evaluasi Kabupaten/Kota */}
-              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Potensi Pengembangan Perusahaan Industri Pengolahan Pertambangan</h2>
-              {/* <iframe
-                src="https://oojn4.github.io/forkestra-bivariatemap"
-                style={{ width: '100%', height: '600px', border: 'none' }}
-                title="Dashboard"
-                className="pt-8 rounded-lg"
-              /> */}
+              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran Hasil Moran's I</h2>
+              <br /> 
+              <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+                  <QuadrantAnalysis data={quadrantData} />
+              </div>
               <br />
-              <Image
-                alt=""
-                src={BIVARIATE}
-                className="object-cover brightness-100"
-                style={{ width: "100%" }}
-              />
+              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Variabel Lainnya</h2>
+              <br /> 
+              <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+                  <QuadrantAnalysis data={quadrantData} />
+              </div>
               <br />
-              <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <BarChart labels={kabkotDataX.map(item => item.label)} data={kabkotDataX.map(item => -item.x)} title="Konektivitas (menit/ 10 Km)" />
-                </div>
-                <div style={{ width: '50%' }}>
-                  <BarChart labels={kabkotDataY.map(item => item.label)} data={kabkotDataY.map(item => item.y)} title="Aksesibilitas (Km/ Km²)" />
-                </div>
-              </motion.div>
               <div className="flex flex-col rounded-lg">
-                <br />
-                <TableKabkot />
-                <br />
+              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Rekomendasi</h2>
+              <br />
+              <div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt totam, odit aspernatur corporis deserunt mollitia perferendis quidem esse nihil minima sunt laudantium assumenda. Quae magni voluptatem impedit nihil, aspernatur ab!</p>
+                
+              </div>
                 {/* <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
                   <QuadrantAnalysis data={kabkotData} />
                 </div> */}

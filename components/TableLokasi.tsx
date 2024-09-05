@@ -77,7 +77,27 @@ const TableLokasi = () => {
                   onClick={() => handleSort('label')}
                   className={`flex items-center ${sortConfig.key === 'label' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  Industri Pengolahan Pertambangan
+                  Tahun
+                  {sortConfig.key === 'label' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              <th className="min-w-[220px] px-4 py-4 font-medium text-white xl:pl-11">
+              <button
+                  type="button"
+                  onClick={() => handleSort('label')}
+                  className={`flex items-center ${sortConfig.key === 'label' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                  Provinsi
+                  {sortConfig.key === 'label' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              <th className="min-w-[220px] px-4 py-4 font-medium text-white xl:pl-11">
+              <button
+                  type="button"
+                  onClick={() => handleSort('label')}
+                  className={`flex items-center ${sortConfig.key === 'label' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                  Kabupaten/Kota
                   {sortConfig.key === 'label' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
@@ -87,7 +107,7 @@ const TableLokasi = () => {
                   onClick={() => handleSort('x')}
                   className={`flex items-center ${sortConfig.key === 'x' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  Konektivitas (menit/ 10 Km)
+                  IKA
                   {sortConfig.key === 'x' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
@@ -97,7 +117,28 @@ const TableLokasi = () => {
                   onClick={() => handleSort('y')}
                   className={`flex items-center ${sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  Aksesibilitas (Km/ Km²)
+                 IKU
+                  {sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('y')}
+                  className={`flex items-center ${sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 Konsumsi Listrik
+                  {sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('y')}
+                  className={`flex items-center ${sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                GTFP
                   {sortConfig.key === 'y' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
@@ -109,22 +150,42 @@ const TableLokasi = () => {
           <tbody>
             {paginatedData.map((packageItem, key) => (
               <tr key={key}>
-                <td className="border-b border-gray-700 px-4 py-5 pl-9 xl:pl-11">
+                <td className="border-b border-gray-700 px-1 py-1 pl-9 xl:pl-11">
                   <h5 className="font-medium text-white">
-                    {packageItem.label}
+                    2020
                   </h5>
                 </td>
-                <td className="border-b border-gray-700 px-4 py-5">
+                <td className="border-b border-gray-700 px-1 py-1 pl-9 xl:pl-11">
+                  <h5 className="font-medium text-white">
+                    Aceh
+                  </h5>
+                </td>
+                <td className="border-b border-gray-700 px-1 py-1 pl-9 xl:pl-11">
+                  <h5 className="font-medium text-white">
+                  {packageItem.label}
+                  </h5>
+                </td>
+                <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
                     {-packageItem.x}
                   </p>
                 </td>
-                <td className="border-b border-gray-700 px-4 py-5">
+                <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
                     {packageItem.y}
                   </p>
                 </td>
-                <td className="border-b border-gray-700 px-4 py-5">
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.y}
+                  </p>
+                </td>
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.y}
+                  </p>
+                </td>
+                <td className="border-b border-gray-700 px-1 py-1">
                   <p
                     className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
                       packageItem.status === "Zona Optimum"

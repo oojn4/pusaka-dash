@@ -1,7 +1,7 @@
 "use client";
 import logo from "@/public/img/Network AI Team-3.png";
-import BG from "@/public/img/Smelter-1024x576.jpg";
 import BIVARIATE from "@/public/img/bivariate_map.jpg";
+import BG from "@/public/img/cloud-forest-landscape.jpg";
 import MONEY_INFRA from "@/public/img/f2.webp";
 import logo1 from "@/public/img/forkestra.png";
 import METHODS from "@/public/img/metod.jpg";
@@ -221,7 +221,7 @@ export default function Home() {
               custom={80}
               style={{ fontSize: "70px" }}
             >
-              Optimalisasi Aksesibilitas dan Konektivitas Smelter Nikel
+              Sumateranomics Aselole Jos
             </motion.h1>
           </motion.div>
           <br /><br />

@@ -7,8 +7,8 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aksesibilitas dan Konektivitas Smelter Nikel",
-  description: "Aksesibilitas dan Konektivitas Smelter Nikel",
+  title: "Sumateranomics Aselole Jos",
+  description: "Sumateranomics Aselole Jos",
 };
 
 export default function RootLayout({

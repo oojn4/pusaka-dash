@@ -182,7 +182,6 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
 
   return (
     <div>
-      <h2 style={{"color":"white"}}>Analisis Kuadran</h2>
       <Scatter data={scatterData} options={scatterOptions} />
     </div>
   );
