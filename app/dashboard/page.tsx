@@ -1,6 +1,7 @@
 "use client";
 import BarChart from "@/components/BarChart";
-import QuadrantAnalysis from "@/components/QuadrantAnalysis";
+import QuadrantAnalysis1 from "@/components/QuadrantAnalysis1";
+import QuadrantAnalysis2 from "@/components/QuadrantAnalysis2";
 import TableLokasi from "@/components/TableLokasi";
 import BG from "@/public/img/cloud-forest-landscape.jpg";
 import logo1 from "@/public/img/forkestra.png";
@@ -9,84 +10,117 @@ import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 const pacifico = Pacifico({
   subsets: ["latin"],
   weight: "400",
 });
 
-const quadrantData = [
-  { x: -18.13, y: 0.00686, label: 'PT SSU', kabupaten_kota: 'Kabupaten Bombana' },
-  { x: -20.34, y: 0.08891, label: 'PT AF', kabupaten_kota: 'Kabupaten Kolaka' },
-  { x: -20.34, y: 0.08891, label: 'PT AP', kabupaten_kota: 'Kabupaten Kolaka' },
-  { x: -20.54, y: 0.08519, label: 'PT BDM', kabupaten_kota: 'Kabupaten Kolaka' },
-  { x: -19.69, y: 0.10238, label: 'PT CMP', kabupaten_kota: 'Kabupaten Kolaka' },
-  { x: -20.26, y: 0.08961, label: 'PT DRI', kabupaten_kota: 'Kabupaten Kolaka' },
-  { x: -20.15, y: 0.09042, label: 'PT PMS', kabupaten_kota: 'Kabupaten Kolaka' },
-  { x: -17.20, y: 0.17069, label: 'PT PRT', kabupaten_kota: 'Kabupaten Kolaka Utara' },
-  { x: -23.05, y: 0.03578, label: 'PT VDNI', kabupaten_kota: 'Kabupaten Konawe' },
-  { x: -22.33, y: 0.05348, label: 'PT BSI', kabupaten_kota: 'Kabupaten Konawe Selatan' },
-  { x: -22.23, y: 0.05271, label: 'PT IMN', kabupaten_kota: 'Kabupaten Konawe Selatan' },
-  { x: -22.20, y: 0.05299, label: 'PT MMM', kabupaten_kota: 'Kabupaten Konawe Selatan' },
-  { x: -22.20, y: 0.05299, label: 'PT MMI', kabupaten_kota: 'Kabupaten Konawe Selatan' },
-  { x: -22.20, y: 0.05146, label: 'PT WIM', kabupaten_kota: 'Kabupaten Konawe Selatan' },
-  { x: -19.67, y: 0.07498, label: 'PT BP', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -21.94, y: 0.05066, label: 'PT BKA', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -21.11, y: 0.05762, label: 'PT CJ', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -19.67, y: 0.07498, label: 'PT CDS', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -19.60, y: 0.07833, label: 'PT KKU', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -19.64, y: 0.07485, label: 'PT KNN', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -21.10, y: 0.05618, label: 'PT MPR', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -19.63, y: 0.07522, label: 'PT SMA', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -19.63, y: 0.07524, label: 'PT SPR', kabupaten_kota: 'Kabupaten Konawe Utara' },
-  { x: -23.48, y: 0.67455, label: 'BDE', kabupaten_kota: 'Kota Kendari' },
-  { x: -23.72, y: 0.66248, label: 'PT BMR', kabupaten_kota: 'Kota Kendari' },
-  { x: -23.32, y: 0.68691, label: 'PT MK', kabupaten_kota: 'Kota Kendari' },
-  { x: -23.73, y: 0.66938, label: 'PT NPM', kabupaten_kota: 'Kota Kendari' },
-  { x: -23.75, y: 0.66226, label: 'PT PS', kabupaten_kota: 'Kota Kendari' },
-  { x: -23.65, y: 0.66774, label: 'PT SMM', kabupaten_kota: 'Kota Kendari' },
-  { x: -23.66, y: 0.66726, label: 'PT SR', kabupaten_kota: 'Kota Kendari' },
-  { x: -23.71, y: 0.66345, label: 'PT TMM', kabupaten_kota: 'Kota Kendari' },
+const gtfpData = [
+  {
+    tahun: 2021,
+    provinsi: "Sulawesi Tenggara",
+    kabupaten_kota: "Kabupaten Bombana",
+    ika: -18.13,
+    iku: 0.00686,
+    konsumsi_listrik: 5000,
+    gtfp: 0.008,
+    status: "Rendah",
+    morans_index_1: 0.12,  // Indeks Moran pertama
+    morans_index_2: 0.15,  // Indeks Moran kedua
+    variabel_lainnya: 1.5, // Contoh variabel numeric lainnya
+  },
+  {
+    tahun: 2021,
+    provinsi: "Sulawesi Tenggara",
+    kabupaten_kota: "Kabupaten Kolaka",
+    ika: -20.34,
+    iku: 0.08891,
+    konsumsi_listrik: 6200,
+    gtfp: 0.045,
+    status: "Rendah",
+    morans_index_1: 0.18,
+    morans_index_2: 0.22,
+    variabel_lainnya: 2.3,
+  },
+  {
+    tahun: 2021,
+    provinsi: "Sulawesi Tenggara",
+    kabupaten_kota: "Kabupaten Konawe",
+    ika: -23.05,
+    iku: 0.03578,
+    konsumsi_listrik: 5400,
+    gtfp: 0.032,
+    status: "Rendah",
+    morans_index_1: 0.15,
+    morans_index_2: 0.20,
+    variabel_lainnya: 1.8,
+  },
+  {
+    tahun: 2022,
+    provinsi: "Sulawesi Tenggara",
+    kabupaten_kota: "Kota Kendari",
+    ika: -23.71,
+    iku: 0.66345,
+    konsumsi_listrik: 8000,
+    gtfp: 0.669,
+    status: "Tinggi",
+    morans_index_1: 0.65,
+    morans_index_2: 0.70,
+    variabel_lainnya: 3.9,
+  },
+  {
+    tahun: 2022,
+    provinsi: "Sulawesi Tenggara",
+    kabupaten_kota: "Kabupaten Konawe Utara",
+    ika: -19.63,
+    iku: 0.07522,
+    konsumsi_listrik: 7000,
+    gtfp: 0.5,
+    status: "Sedang",
+    morans_index_1: 0.35,
+    morans_index_2: 0.40,
+    variabel_lainnya: 2.8,
+  },
+  {
+    tahun: 2022,
+    provinsi: "Sulawesi Tenggara",
+    kabupaten_kota: "Kabupaten Konawe Selatan",
+    ika: -22.23,
+    iku: 0.05271,
+    konsumsi_listrik: 6300,
+    gtfp: 0.12,
+    status: "Sedang",
+    morans_index_1: 0.25,
+    morans_index_2: 0.30,
+    variabel_lainnya: 2.2,
+  },
 ];
 
-
-const kabkotData = [
-  { x: -24.36967, y: 0.45456701, label: 'Kabupaten Buton', status: 'Zona Terbatas' },
-  { x: -24.84098, y: 0.65483124, label: 'Kabupaten Muna', status: 'Zona Terbatas' },
-  { x: -22.12250, y: 0.47721178, label: 'Kabupaten Konawe', status: 'Zona Terbatas' },
-  { x: -20.18453, y: 0.69797817, label: 'Kabupaten Kolaka', status: 'Zona Terbatas' },
-  { x: -22.00859, y: 0.86215093, label: 'Kabupaten Konawe Selatan', status: 'Zona Terbatas' },
-  { x: -19.27890, y: 0.41286409, label: 'Kabupaten Bombana', status: 'Zona Terbatas' },
-  { x: -28.03653, y: 0.27188396, label: 'Kabupaten Wakatobi', status: 'Zona Terisolasi' },
-  { x: -18.17569, y: 0.44885879, label: 'Kabupaten Kolaka Utara', status: 'Zona Terbatas' },
-  { x: -23.61369, y: 0.32681904, label: 'Kabupaten Buton Utara', status: 'Zona Terbatas' },
-  { x: -20.20635, y: 0.31528563, label: 'Kabupaten Konawe Utara', status: 'Zona Terbatas' },
-  { x: -20.96893, y: 0.38844034, label: 'Kabupaten Kolaka Timur', status: 'Zona Terbatas' },
-  { x: -26.73254, y: 0.37360547, label: 'Kabupaten Konawe Kepulauan', status: 'Zona Terbatas' },
-  { x: -23.50126, y: 0.92441280, label: 'Kabupaten Muna Barat', status: 'Zona Terbatas' },
-  { x: -21.85805, y: 0.68017289, label: 'Kabupaten Buton Tengah', status: 'Zona Terbatas' },
-  { x: -25.28948, y: 0.47680299, label: 'Kabupaten Buton Selatan', status: 'Zona Terbatas' },
-  { x: -23.29112, y: 6.19170773, label: 'Kota Kendari', status: 'Zona Padat' },
-  { x: -25.97746, y: 2.09533925, label: 'Kota Baubau', status: 'Zona Padat' }
-];
-
-const pieLabels = ['B Pertambangan dan Penggalian', 'C Industri Pengolahan', 'F Konstruksi', 'A Pertanian,Kehutanan,dan Perikanan', 'G Perdagangan', 'Lainnya'];
-const pieDatasetLabel = 'PDRB';
-const pieData = [21.08, 6.47, 14.03, 22.95, 12.76, 4.89];
-
-const quadrantDataX = [...quadrantData].sort((a, b) => b.x - a.x);
-const quadrantDataY = [...quadrantData].sort((a, b) => b.y - a.y);
-const kabkotDataX = [...kabkotData].sort((a, b) => b.x - a.x);
-const kabkotDataY = [...kabkotData].sort((a, b) => b.y - a.y);
+// Dapatkan unique kabupaten/kota dan tahun untuk dropdown
+const uniqueKabupatenKota = [...new Set(gtfpData.map(item => item.kabupaten_kota))];
+const uniqueTahun = [...new Set(gtfpData.map(item => item.tahun))];
 
 export default function Home() {
   const router = useRouter(); // Initialize the useRouter hook
   const [activeTab, setActiveTab] = useState("lokasi"); // State to manage active tab
+  const [selectedKabupaten, setSelectedKabupaten] = useState(""); // State to manage selected kabupaten
+  const [selectedTahun, setSelectedTahun] = useState(""); // State for selected year
 
-  const handleDashboardClick = () => {
-    router.push('/dashboard'); // Navigate to the /dashboard page
+  // Handle filter change
+  const handleKabupatenChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+    setSelectedKabupaten(e.target.value);
   };
+
+  // Filter gtfpData based on selected kabupaten
+  // Filter data based on selected kabupaten/kota and year
+  const filteredData = gtfpData.filter(item => {
+    return (
+      (selectedKabupaten ? item.kabupaten_kota === selectedKabupaten : true) &&
+      (selectedTahun ? item.tahun === parseInt(selectedTahun) : true)
+    );
+  });
 
   return (
     <main className="min-h-screen px-6 relative z-0">
@@ -146,6 +180,36 @@ export default function Home() {
             </button>
           </div>
 
+          {/* Filter Dropdowns */}
+          <div className="flex justify-between mb-6">
+            <div>
+              <label className="text-[#eaeaea]">Kabupaten/Kota: </label>
+              <select
+                className="px-4 py-2 bg-gray-800 text-yellow-200"
+                value={selectedKabupaten}
+                onChange={(e) => setSelectedKabupaten(e.target.value)}
+              >
+                <option value="">Semua</option>
+                {uniqueKabupatenKota.map(kabupaten => (
+                  <option key={kabupaten} value={kabupaten}>{kabupaten}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="text-[#eaeaea]">Tahun: </label>
+              <select
+                className="px-4 py-2 bg-gray-800 text-yellow-200"
+                value={selectedTahun}
+                onChange={(e) => setSelectedTahun(e.target.value)}
+              >
+                <option value="">Semua</option>
+                {uniqueTahun.map(tahun => (
+                  <option key={tahun} value={tahun}>{tahun}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
           {/* Tab Content */}
           {activeTab === "lokasi" ? (
             <div>
@@ -159,19 +223,19 @@ export default function Home() {
               />
               <br />
               <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
-                <div style={{ flex: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataX.map(item => item.label)} data={quadrantDataX.map(item => -item.x)} title="Indeks Kualitas Air" />
+                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <BarChart provinsi={filteredData.map(item => item.provinsi)} labels={filteredData.map(item => item.kabupaten_kota)} data={filteredData.map(item => item.ika)} title="Indeks Kualitas Air" />
                 </div>
                 <div style={{ width: '30%' }}>
-                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Indeks Kualitas Udara" />
+                  <BarChart provinsi={filteredData.map(item => item.provinsi)} labels={filteredData.map(item => item.kabupaten_kota)} data={filteredData.map(item => item.iku)} title="Indeks Kualitas Udara" />
                 </div>
                 <div style={{ width: '30%' }}>
-                  <BarChart kabupaten_kota = {quadrantDataX.map(item => item.kabupaten_kota)} labels={quadrantDataY.map(item => item.label)} data={quadrantDataY.map(item => item.y)} title="Konsumsi Listrik" />
+                  <BarChart provinsi={filteredData.map(item => item.provinsi)} labels={filteredData.map(item => item.kabupaten_kota)} data={filteredData.map(item => item.konsumsi_listrik)} title="Konsumsi Listrik" />
                 </div>
               </motion.div>
               <div className="flex flex-col rounded-lg">
                 <br />
-                <TableLokasi />
+                <TableLokasi data={filteredData} />
                 <br />
               </div>
             </div>
@@ -181,26 +245,21 @@ export default function Home() {
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran Hasil Moran's I</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <QuadrantAnalysis data={quadrantData} />
+                  <QuadrantAnalysis1 data={filteredData} />
               </div>
               <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Variabel Lainnya</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <QuadrantAnalysis data={quadrantData} />
+                  <QuadrantAnalysis2 data={filteredData} />
               </div>
               <br />
-              <div className="flex flex-col rounded-lg">
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Rekomendasi</h2>
+              <br /> 
+              <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+                  <p style={{color:"white"}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum illum dolore, tenetur repudiandae sit soluta earum eligendi fuga totam et, sed veniam quo optio nulla. Laboriosam dolorem molestias voluptatem qui?</p>
+              </div>
               <br />
-              <div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt totam, odit aspernatur corporis deserunt mollitia perferendis quidem esse nihil minima sunt laudantium assumenda. Quae magni voluptatem impedit nihil, aspernatur ab!</p>
-                
-              </div>
-                {/* <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <QuadrantAnalysis data={kabkotData} />
-                </div> */}
-              </div>
             </div>
           )}
         </div>

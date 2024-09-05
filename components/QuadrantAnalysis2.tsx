@@ -8,18 +8,18 @@ Chart.register(...registerables, annotationPlugin);
 
 // Define a type for your data points
 interface DataPoint {
-  x: number;
-  y: number;
-  label: string;
+  gtfp: number;
+  variabel_lainnya: number;
+  provinsi: string;
   kabupaten_kota:string;
 }
 
-const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
+const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
   // Extract data points
   const points = data.map(point => ({
-    x: point.x,
-    y: point.y,
-    label: point.label,
+    x: point.gtfp,
+    y: point.variabel_lainnya,
+    provinsi: point.provinsi,
     kabupaten_kota: point.kabupaten_kota
   }));
 
@@ -49,10 +49,10 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           label: (tooltipItem: TooltipItem<'scatter'>) => {
             // Assert the type of raw to DataPoint
             const dataPoint = tooltipItem.raw as DataPoint;
-            const label = dataPoint.label;
+            const provinsi = dataPoint.provinsi;
             const kabkot = dataPoint.kabupaten_kota;
             return [
-              `Industri: ${label}`,
+              `Provinsi: ${provinsi}`,
               `Kabupaten/Kota: ${kabkot}`
             ];
           },
@@ -63,24 +63,24 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           // Vertical Line
           verticalLine: {
             type: 'line',
-            xMin: -21.36,
-            xMax: -21.36,
+            xMin: 0.5,
+            xMax: 0.5,
             borderColor: 'red',
             borderWidth: 2,
           },
           // Horizontal Line
           horizontalLine: {
             type: 'line',
-            yMin: 0.2257,
-            yMax: 0.2257,
+            yMin: 0.5,
+            yMax: 0.5,
             borderColor: 'blue',
             borderWidth: 2,
           },
           // Quadrant Labels
           quadrantI: {
             type: 'label',
-            xValue: -21.36+2,
-            yValue: 0.2257+0.25,
+            xValue: 0.5,
+            yValue: 0.5,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -96,8 +96,8 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantII: {
             type: 'label',
-            xValue: -21.36-2+1,
-            yValue: 0.2257+0.25,
+            xValue: -0.5,
+            yValue: 0.5,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -113,8 +113,8 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantIII: {
             type: 'label',
-            xValue: -21.36-2+1,
-            yValue: 0.2257-0.25,
+            xValue: 0.5,
+            yValue: -0.5,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -130,8 +130,8 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantIV: {
             type: 'label',
-            xValue: -21.36+2,
-            yValue: 0.2257-0.25,
+            xValue: -0.5,
+            yValue: -0.5,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -187,4 +187,4 @@ const QuadrantAnalysis: React.FC<{ data: DataPoint[] }> = ({ data }) => {
   );
 };
 
-export default QuadrantAnalysis;
+export default QuadrantAnalysis2;

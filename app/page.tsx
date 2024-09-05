@@ -11,7 +11,7 @@ import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import PieChart from "../components/PieChart";
-import QuadrantAnalysis from "../components/QuadrantAnalysis";
+import QuadrantAnalysis from "../components/QuadrantAnalysis1";
 const pacifico = Pacifico({
   subsets: ["latin"],
   weight: "400",
