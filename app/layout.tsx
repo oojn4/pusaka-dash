@@ -7,8 +7,8 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sumateranomics Aselole Jos",
-  description: "Sumateranomics Aselole Jos",
+  title: "Evaluasi Green Total Factor Productivity dan Keuangan Daerah: Pendekatan Big Data untuk Keberlanjutan Sektor Keuangan",
+  description: "Pengembangan Sektor Keuangan Berwawasan Lingkungan, Sosial, dan Tata Kelola Berkelanjutan: Tinjauan Evaluasi Green Total Factor Productivity dan Keuangan Daerah Pendekatan Big Data",
 };
 
 export default function RootLayout({

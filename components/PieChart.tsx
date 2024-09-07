@@ -58,7 +58,7 @@ const PieChart: React.FC<PieChartProps> = ({ labels, datasetLabel, data }) => {
             legend: {
                 position: 'top',
                 labels: {
-                    filter: function (legendItem, chartData) {
+                    filter: function (legendItem:any, chartData) {
                         // Only display the legend for the top 5 segments
                         return sortedIndices.includes(legendItem.index);
                     }

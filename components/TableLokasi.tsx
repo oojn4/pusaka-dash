@@ -98,7 +98,38 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
                   {sortConfig.key === 'konsumsi_listrik' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('pdrb')}
+                  className={`flex items-center ${sortConfig.key === 'pdrb' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 PDRB
+                  {sortConfig.key === 'pdrb' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
               
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('tk')}
+                  className={`flex items-center ${sortConfig.key === 'tk' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 Tenaga Kerja
+                  {sortConfig.key === 'tk' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('pmtb')}
+                  className={`flex items-center ${sortConfig.key === 'pmtb' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 PMTB
+                  {sortConfig.key === 'pmtb' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
               <th className="min-w-[120px] px-4 py-4 font-medium text-white">
               <button
                   type="button"
@@ -142,6 +173,21 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
                 <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
                     {packageItem.konsumsi_listrik}
+                  </p>
+                </td>
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.pdrb}
+                  </p>
+                </td>
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.tk}
+                  </p>
+                </td>
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.pmtb}
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
