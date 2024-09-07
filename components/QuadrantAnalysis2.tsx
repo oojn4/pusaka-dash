@@ -9,7 +9,7 @@ Chart.register(...registerables, annotationPlugin);
 // Define a type for your data points
 interface DataPoint {
   gtfp: number;
-  variabel_lainnya: number;
+  fiskal: number;
   provinsi: string;
   kabupaten_kota:string;
 }
@@ -18,7 +18,7 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
   // Extract data points
   const points = data.map(point => ({
     x: point.gtfp,
-    y: point.variabel_lainnya,
+    y: point.fiskal,
     provinsi: point.provinsi,
     kabupaten_kota: point.kabupaten_kota
   }));
@@ -63,24 +63,24 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           // Vertical Line
           verticalLine: {
             type: 'line',
-            xMin: 0.5,
-            xMax: 0.5,
+            xMin: 0.76,
+            xMax: 0.76,
             borderColor: 'red',
             borderWidth: 2,
           },
           // Horizontal Line
           horizontalLine: {
             type: 'line',
-            yMin: 0.5,
-            yMax: 0.5,
+            yMin: 0.82,
+            yMax: 0.82,
             borderColor: 'blue',
             borderWidth: 2,
           },
           // Quadrant Labels
           quadrantI: {
             type: 'label',
-            xValue: 0.5,
-            yValue: 0.5,
+            xValue: 0.9,
+            yValue: 3,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -90,14 +90,31 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
               weight: 'bold',
             },
             padding: 6,
-            xAdjust: 10,
+            xAdjust: -10,
             yAdjust: -10,
-            content: 'Kuadran I: Zona Optimum',
+            content: 'Kuadran I',
           },
           quadrantII: {
             type: 'label',
-            xValue: -0.5,
-            yValue: 0.5,
+            xValue: 0.5,
+            yValue: 3,
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            borderColor: 'rgba(0, 0, 0, 0.8)',
+            borderWidth: 1,
+            color: 'white',
+            font: {
+              size: 16,
+              weight: 'bold',
+            },
+            padding: 6,
+            xAdjust: 10,
+            yAdjust: 10,
+            content: 'Kuadran II',
+          },
+          quadrantIII: {
+            type: 'label',
+            xValue: 0.9,
+            yValue: -0.5,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -109,9 +126,9 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
             padding: 6,
             xAdjust: -10,
             yAdjust: -10,
-            content: 'Kuadran II: Zona Padat',
+            content: 'Kuadran III',
           },
-          quadrantIII: {
+          quadrantIV: {
             type: 'label',
             xValue: 0.5,
             yValue: -0.5,
@@ -124,26 +141,9 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
               weight: 'bold',
             },
             padding: 6,
-            xAdjust: -10,
-            yAdjust: 10,
-            content: 'Kuadran IV: Zona Terisolasi',
-          },
-          quadrantIV: {
-            type: 'label',
-            xValue: -0.5,
-            yValue: -0.5,
-            backgroundColor: 'rgba(0, 0, 0, 0.3)',
-            borderColor: 'rgba(0, 0, 0, 0.8)',
-            borderWidth: 1,
-            color: 'white',
-            font: {
-              size: 16,
-              weight: 'bold',
-            },
-            padding: 6,
             xAdjust: 10,
-            yAdjust: 10,
-            content: 'Kuadran III: Zona Terbatas',
+            yAdjust: -10,
+            content: 'Kuadran IV',
           },
         },
       },
@@ -154,7 +154,7 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
         position: 'bottom',
         title: {
           display: true,
-          text: 'Konektivitas (menit/ 10 Km)',  // Add your Y axis label here
+          text: 'GTFP',  // Add your Y axis label here
           color: '#fff',
         },
         grid: {
@@ -167,7 +167,7 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
       y: {
         title: {
           display: true,
-          text: "Aksesibilitas (Km/ Km²)",  // Add your Y axis label here
+          text: "Fiskal",  // Add your Y axis label here
           color: '#fff',
         },
         grid: {

@@ -2,9 +2,9 @@
 import logo from "@/public/img/Network AI Team-3.png";
 import BIVARIATE from "@/public/img/bivariate_map.jpg";
 import BG from "@/public/img/cloud-forest-landscape.jpg";
-import MONEY_INFRA from "@/public/img/f2.webp";
 import logo1 from "@/public/img/forkestra.png";
 import METHODS from "@/public/img/metod.jpg";
+import MONEY_INFRA from "@/public/img/sustainable-development-goals-still-life-removebg-preview.png";
 import { Button } from "@mantine/core";
 import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
@@ -218,9 +218,17 @@ export default function Home() {
               className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold`}
               variants={textAnimate2}
               custom={80}
-              style={{ fontSize: "70px" }}
+              style={{ fontSize: "50px" }}
             >
-              Sumateranomics Aselole Jos
+              Pengembangan Sektor Keuangan Berwawasan Lingkungan, Sosial, dan Tata Kelola Berkelanjutan:
+              </motion.h1>
+            <motion.h1
+              className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold`}
+              variants={textAnimate2}
+              custom={80}
+              style={{ fontSize: "40px" }}
+            >
+              Tinjauan Evaluasi Green Total Factor Productivity dan Keuangan Daerah Pendekatan Big Data
             </motion.h1>
           </motion.div>
           <br /><br />
@@ -320,11 +328,7 @@ export default function Home() {
               <div style={{ textAlign: 'left' }}>
                 <h1></h1>
                 <p>
-                Sektor pertambangan merupakan salah satu <b>penopang utama</b> perkonomian Sulawesi Tenggara (21,08%)
-                </p>
-                <br />
-                <p>
-                Namun, potensi ekonomi dari sektor ini <b>belum sepenuhnya dilakukan hilirisasi ke dalam industri pengolahan</b>. Pengembangan industri pengolahan selain memberikan nilai tambah yang lebih besar juga memungkinkan memberikan <b><i>multiplier effect</i></b> seperti penciptaan lapangan pekerjaan.
+                Perekonomian Sumatera telah lama <b>bergantung pada sektor pertambangan</b> khususnya batu bara, yang menjadi salah satu kontributor utama pertumbuhan ekonomi (BPS, 2023). <b> Eksploitasi</b> sumber daya alam secara intesif memberikan berbagai <b>dampak negatif</b> terhadap lingkungan, seperti polusi udara, kerusakan lahan, dan degradasi ekosistem. 
                 </p>
                 <br />
               </div>
@@ -334,6 +338,12 @@ export default function Home() {
             </div>
             <br />
           </motion.div>
+          {/* <motion.div className="pt-8">
+          <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
+                Green Total Factor Productivity (GTFP) merupakan salah satu indikator yang digunakan untuk mengukur tingkat produktivitas hijau suatu wilayah. Indikator ini tidak terbatas hanya mengukur seberapa efisien suatu unit produksi dalam menghasilkan output yang diinginkan, melainkan juga memperhitungkan dampak negatif yang timbul pada lingkungan, seperti emisi atau polusi ​(Rusiawan dkk., 2015b)
+            </p>
+          </motion.div> */}
+
           <br />
           <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column'}}>
@@ -341,13 +351,13 @@ export default function Home() {
               <Image
                 alt=""
                 src={MONEY_INFRA}
-                width={"300"}
+                width={"1500"}
               />
               </div>
             </div>
-            <div style={{ width: '50%' , justifyContent: 'center' ,textAlign: 'right' }} className="pt-16">
+            <div style={{ width: '50%' , justifyContent: 'center' ,textAlign: 'right' }} className="">
               <p></p>
-              <p><b>Investasi infrastruktur transportasi</b> di wilayah pertambangan dapat <b>meningkatkan konektivitas</b> dan <b>pertumbuhan ekonomi</b> secara <b>signifikan</b> (Asian Development Bank)</p>
+              <p>Green Total Factor Productivity (GTFP) merupakan salah satu indikator yang digunakan untuk mengukur tingkat produktivitas hijau suatu wilayah. Indikator ini tidak terbatas hanya mengukur seberapa efisien suatu unit produksi dalam menghasilkan output yang diinginkan, melainkan juga memperhitungkan dampak negatif yang timbul pada lingkungan, seperti emisi atau polusi ​(Rusiawan dkk., 2015b)</p>
               <p></p>
             </div>
             <br />

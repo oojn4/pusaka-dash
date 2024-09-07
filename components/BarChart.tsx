@@ -56,12 +56,20 @@ const BarChart: React.FC<BarChartProps> = ({ labels, data, title, tahun, provins
       tooltip: {
         displayColors: false,
         callbacks: {
-          label: function (tooltipItem:any) {
+          label: function (tooltipItem: any) {
             const label = labels[tooltipItem.dataIndex];
-            const prov = provinsi? provinsi[tooltipItem.dataIndex]:'';
-            return [
-              label? prov?`${prov}`: '':`${label}`
-            ];
+            const prov = provinsi ? provinsi[tooltipItem.dataIndex] : '';
+            const value = data[tooltipItem.dataIndex];
+            const year = tahun ? tahun[tooltipItem.dataIndex] : '';
+          
+            let tooltipLabel = `${title}: ${value}`;
+            // if (prov) {
+            //   tooltipLabel += `, Provinsi: ${prov}`;
+            // }
+            if (year) {
+              tooltipLabel += `, Tahun: ${year}`;
+            }
+            return tooltipLabel;
           }
         }
       }
