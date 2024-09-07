@@ -1,5 +1,3 @@
-// PieChart.tsx
-
 import { ArcElement, Chart as ChartJS, ChartOptions, Legend, Title, Tooltip } from 'chart.js';
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
@@ -19,6 +17,13 @@ const PieChart: React.FC<PieChartProps> = ({ labels, datasetLabel, data }) => {
         console.error('Invalid props passed to PieChart');
         return null;
     }
+
+    // Get indices of the top 5 largest data values
+    const sortedIndices = data
+        .map((value, index) => ({ value, index }))
+        .sort((a, b) => b.value - a.value) // Sort by value descending
+        .slice(0, 5) // Get top 5
+        .map(item => item.index); // Extract indices
 
     // Data and configuration for the pie chart
     const chartData = {
@@ -52,10 +57,16 @@ const PieChart: React.FC<PieChartProps> = ({ labels, datasetLabel, data }) => {
         plugins: {
             legend: {
                 position: 'top',
+                labels: {
+                    filter: function (legendItem, chartData) {
+                        // Only display the legend for the top 5 segments
+                        return sortedIndices.includes(legendItem.index);
+                    }
+                }
             },
             tooltip: {
                 callbacks: {
-                    label: function(tooltipItem) {
+                    label: function (tooltipItem) {
                         const dataset = tooltipItem.dataset;
                         const label = dataset.label || '';
                         const value = dataset.data[tooltipItem.dataIndex];
