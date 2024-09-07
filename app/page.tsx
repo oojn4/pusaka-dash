@@ -1,7 +1,7 @@
 "use client";
 import logo from "@/public/img/Network AI Team-3.png";
-import BIVARIATE from "@/public/img/bivariate_map.jpg";
 import BG from "@/public/img/cloud-forest-landscape.jpg";
+import SATELITE from "@/public/img/earth-observation-abstract-concept-vector-illustration-space-engineering-planetary-science-satellite-service-geoinformation-applied-earth-observation-remote-sensing-abstract-metaphor.png";
 import logo1 from "@/public/img/forkestra.png";
 import METHODS from "@/public/img/metod.jpg";
 import MONEY_INFRA from "@/public/img/sustainable-development-goals-still-life-removebg-preview.png";
@@ -338,11 +338,6 @@ export default function Home() {
             </div>
             <br />
           </motion.div>
-          {/* <motion.div className="pt-8">
-          <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-                Green Total Factor Productivity (GTFP) merupakan salah satu indikator yang digunakan untuk mengukur tingkat produktivitas hijau suatu wilayah. Indikator ini tidak terbatas hanya mengukur seberapa efisien suatu unit produksi dalam menghasilkan output yang diinginkan, melainkan juga memperhitungkan dampak negatif yang timbul pada lingkungan, seperti emisi atau polusi ​(Rusiawan dkk., 2015b)
-            </p>
-          </motion.div> */}
 
           <br />
           <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
@@ -359,6 +354,26 @@ export default function Home() {
               <p></p>
               <p>Green Total Factor Productivity (GTFP) merupakan salah satu indikator yang digunakan untuk mengukur tingkat produktivitas hijau suatu wilayah. Indikator ini tidak terbatas hanya mengukur seberapa efisien suatu unit produksi dalam menghasilkan output yang diinginkan, melainkan juga memperhitungkan dampak negatif yang timbul pada lingkungan, seperti emisi atau polusi ​(Rusiawan dkk., 2015b)</p>
               <p></p>
+            </div>
+            <br />
+          </motion.div>
+          <br />
+          <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ textAlign: 'left' }}>
+                <h1></h1>
+                <p>
+                Data pembangun GTFP banyak tidak tersedia pada level kabupaten/kota. Disisi lain, citra satelit dan geospatial big data berpotensi sebagai sumber data alternatif untuk melengkapi data pembangun  GTFP level kabupaten/kota. Hal ini disebabkan data citra satelit dan geospatial big data memiliki keunggulan dalam pengumpulan data yang cepat, mudah, murah, up-to-date, dan dapat mengakses wilayah-wilayah yang sulit dijangkau langsung di lapangan. 
+                </p>
+                <br />
+              </div>
+            </div>
+            <div style={{ width: '50%' }}>
+            <Image
+                alt=""
+                src={SATELITE}
+                width={"1500"}
+              />
             </div>
             <br />
           </motion.div>
@@ -380,56 +395,9 @@ export default function Home() {
           />
           <motion.div className="pt-8">
             <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Penelitian ini memanfaatkan data dari OpenStreetMap (OSM), Google Maps, Google Earth Engine (GEE), dan Kementerian Perhubungan (Kemenhub) untuk menganalisis konektivitas dan aksesibilitas industri pengolahan nikel di Sulawesi Tenggara. Infrastruktur jalan diekstraksi menggunakan OSMnx, dan variabel seperti panjang jalan dan waktu tempuh dihitung melalui Google Maps API. Data satelit SNPP-VIIRS digunakan untuk memverifikasi aktivitas malam hari. 
+            Sumber data penelitian ini terbagi menjadi 3 bagian yaitu citra satelit, OSM, dan data ofisial statistik milik Badan Informasi Geospasial (BIG), Badan Pusat Statistik (BPS), dan Perusahaan Listrik Negara (PLN). Selanjutnya dilakukan preprocessing untuk menghasilka variabel-variabel yang digunakan sebagai input dan ouput dalam menghitung GTFP. Metode Multicriteria Decision Analysis (MCDA) digunakan untuk membangun variabel Indeks Kualitas Udara (IKU) dan Indeks Kualitas Air (IKA). Sedangkan metode machine learning digunaka untuk mengestimasi konsumsi listrik level kabupaten/kota. Selanjutnya dilakukan analisis spasial untuk mengukur pengaruh regulasi lingkungan, kapasitas fiskal, dan teknologi digital terhadap nilai GTFP 
             </p>
             <br />
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-            Algoritma Dijkstra digunakan untuk perhitungan rute terpendek. Indeks konektivitas dan aksesibilitas dihitung dan divisualisasikan dalam dashboard interaktif berbasis Next.js, membantu pemerintah dalam evaluasi dan optimalisasi industri.
-            </p>
-          </motion.div>
-          <motion.h2
-            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
-            id="result1"
-          >
-            Tujuan 1: Evaluasi Konektivitas dan Aksesibilitas Industri Pengolahan Pertambangan 
-          </motion.h2>
-          <motion.div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              {/* <QuadrantAnalysis1 data={quadrantData} /> */}
-            </div>
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg mt-6">
-            Hasil analisis menunjukkan bahwa industri pengolahan pertambangan di Sulawesi Tenggara <b> tidak ada yang berada di Zona Optimum</b>. Sebagian besar industri tersebar di Zona Padat, Terbatas, dan Terisolasi, menunjukkan tantangan infrastruktur yang signifikan. Oleh karena itu, kebijakan harus difokuskan pada peningkatan konektivitas dan aksesibilitas, terutama di zona terbatas dan terisolasi, melalui pembangunan jalan dan transportasi yang lebih baik.
-            </p>
-          </motion.div>
-          <motion.h2
-            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
-            id="result2"
-          >
-            Tujuan 2: Pemetaan Wilayah Potensi Pengembangan Perusahaan Industri Pengolahan Pertambangan
-          </motion.h2>
-          <motion.div>
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg">
-            Dengan membandingkan antara konektivitas dan aksesibilitas pada pusat pertumbuhan ekonomi setiap kabupaten atau kota di Provinsi Sulawesi Tenggara. Wilayah kabupaten atau kota dengan warna <b>semakin gelap</b> menunjukkan bahwa wilayah tersebut <b>cocok untuk direkomendasikan sebagai wilayah untuk pengembangan perusahaan industri pengolahan pertambangan </b> karena memiliki konektivitas dan aksesibilitas yang tinggi.
-            </p>
-            {/* <iframe
-              src="https://oojn4.github.io/forkestra-bivariatemap"
-              style={{ width: '100%', height: '600px', border: 'none' }}
-              title="Dashboard"
-              className="pt-8 rounded-lg"
-            /> */}
-            <br />
-            <Image
-            alt=""
-            src={BIVARIATE}
-            className="object-cover brightness-100"
-            style={{ width: "100%" }}
-          />
           </motion.div>
         </div>
       </section>
