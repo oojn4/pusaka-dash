@@ -10931,7 +10931,7 @@ export default function Home() {
           ) : (
             <div>
               {/* Content for Evaluasi Kabupaten/Kota */}
-              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Hasil LISA</h2>
+              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Local Spatial Autocorrelation</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <Image
