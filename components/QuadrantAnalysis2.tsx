@@ -63,8 +63,8 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           // Vertical Line
           verticalLine: {
             type: 'line',
-            xMin: 0.76,
-            xMax: 0.76,
+            xMin: 0.8,
+            xMax: 0.8,
             borderColor: 'red',
             borderWidth: 2,
           },
