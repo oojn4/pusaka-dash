@@ -11,6 +11,7 @@
   "dependencies": {
     "@mantine/core": "^7.12.2",
     "@mantine/hooks": "^7.12.2",
+    "animated-landing-page": "file:",
     "chart.js": "^4.4.4",
     "chartjs-plugin-annotation": "^3.0.1",
     "framer-motion": "^11.2.7",

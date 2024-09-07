@@ -109,9 +109,6 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
                   {sortConfig.key === 'gtfp' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
-              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
-                Status
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -148,23 +145,32 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
-                  <p className="text-white">
+                <p
+                    className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
+                      packageItem.gtfp >=0.8 
+                        ? "bg-success text-success"
+                        : packageItem.gtfp >=0.6 ? "bg-warning text-warning"
+                        :packageItem.gtfp >= 0.4
+                          ? "bg-orange-500 text-warning"
+                          : "bg-danger text-danger"
+                    }`}
+                  >
                     {packageItem.gtfp}
                   </p>
                 </td>
-                <td className="border-b border-gray-700 px-1 py-1">
+                {/* <td className="border-b border-gray-700 px-1 py-1">
                   <p
                     className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
-                      packageItem.status === "Tinggi"
+                      packageItem.gtfp >=0.8 
                         ? "bg-success text-success"
-                        : packageItem.status === "Rendah"
+                        : packageItem.gtfp <= 0.4
                           ? "bg-danger text-danger"
                           : "bg-warning text-warning"
                     }`}
                   >
                     {packageItem.status}
                   </p>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>
