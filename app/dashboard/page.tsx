@@ -10957,8 +10957,46 @@ export default function Home() {
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Rekomendasi</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <p style={{color:"white"}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum illum dolore, tenetur repudiandae sit soluta earum eligendi fuga totam et, sed veniam quo optio nulla. Laboriosam dolorem molestias voluptatem qui?</p>
-              </div>
+                  <p style={{color: "white"}}>Berdasarkan hasil analisis kuadran antara GTFP dan kapasitas fiskal, berikut adalah rekomendasi kebijakan untuk masing-masing kuadran:</p>
+                  
+                  <div className="mt-4">
+                    <h2 className="text-xl font-bold text-green-400">Kuadran I (GTFP tinggi, Kapasitas Fiskal tinggi):</h2>
+                    <ul className="list-disc ml-5 mt-2">
+                      <li><strong>Investasi Hijau:</strong> Dorong investasi hijau dengan inisiatif inovatif dan berkelanjutan.</li>
+                      <li><strong>Pembangunan Teknologi:</strong> Fokus pada pengembangan teknologi ramah lingkungan.</li>
+                      <li><strong>Kolaborasi Publik-Swasta:</strong> Perkuat kolaborasi untuk mempertahankan momentum pertumbuhan.</li>
+                      <li><strong>Diversifikasi Ekonomi:</strong> Implementasikan kebijakan fiskal untuk diversifikasi ekonomi guna ketahanan jangka panjang.</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-6">
+                    <h2 className="text-xl font-bold text-yellow-400">Kuadran II (GTFP rendah, Kapasitas Fiskal tinggi):</h2>
+                    <ul className="list-disc ml-5 mt-2">
+                      <li><strong>Efektivitas Alokasi Anggaran:</strong> Fokus pada peningkatan efektivitas alokasi anggaran dengan perencanaan yang lebih baik.</li>
+                      <li><strong>Proyek Hijau:</strong> Pastikan dana digunakan untuk proyek lingkungan dan pelatihan di sektor berkelanjutan.</li>
+                      <li><strong>Monitoring dan Evaluasi:</strong> Perketat kebijakan monitoring dan evaluasi penggunaan anggaran.</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-6">
+                    <h2 className="text-xl font-bold text-red-400">Kuadran III (GTFP rendah, Kapasitas Fiskal rendah):</h2>
+                    <ul className="list-disc ml-5 mt-2">
+                      <li><strong>Bantuan Kapasitas Fiskal:</strong> Tingkatkan kapasitas fiskal melalui transfer dan bantuan teknis dari pemerintah pusat.</li>
+                      <li><strong>Infrastruktur dan Pendidikan:</strong> Prioritaskan peningkatan infrastruktur dasar dan pendidikan lingkungan.</li>
+                      <li><strong>Investasi Hijau Swasta:</strong> Mendorong masuknya investasi hijau dari sektor swasta untuk meningkatkan produktivitas.</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-6">
+                    <h2 className="text-xl font-bold text-blue-400">Kuadran IV (GTFP tinggi, Kapasitas Fiskal rendah):</h2>
+                    <ul className="list-disc ml-5 mt-2">
+                      <li><strong>Penguatan Kapasitas Fiskal Lokal:</strong> Arahkan kebijakan fiskal untuk memperkuat kapasitas fiskal lokal.</li>
+                      <li><strong>Insentif Fiskal:</strong> Berikan insentif fiskal dan kemudahan dalam pengumpulan pendapatan daerah.</li>
+                      <li><strong>Kemitraan Sektor Swasta:</strong> Fasilitasi kemitraan dengan sektor swasta atau donor internasional untuk pembiayaan proyek ramah lingkungan.</li>
+                    </ul>
+                  </div>
+                </div>
+
               <br />
             </div>
           )}
