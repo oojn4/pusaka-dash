@@ -167,7 +167,7 @@ const QuadrantAnalysis2: React.FC<{ data: DataPoint[] }> = ({ data }) => {
       y: {
         title: {
           display: true,
-          text: "Fiskal",  // Add your Y axis label here
+          text: "Kapasitas Fiskal",  // Add your Y axis label here
           color: '#fff',
         },
         grid: {
