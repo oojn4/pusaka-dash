@@ -10807,20 +10807,15 @@ export default function Home() {
       .catch((error) => console.error('Error fetching JSON data:', error));
   }, []);
 
-  if (!data) {
-    return <div>Loading...</div>;
-  }
+  // if (!data) {
+  //   return <div>Loading...</div>;
+  // }
   useEffect(() => {
-    if (selectedKabupaten) {
       // Filter data by the selected Kabupaten/Kota
       const filteredData = data.filter((item) => item.Kabkot === selectedKabupaten);
       // Get unique Kecamatan for the selected Kabupaten/Kota
       const kecamatan = [...new Set(filteredData.map((item) => item.Kecamatan))];
       setUniqueKecamatan(kecamatan);
-    } else {
-      // Reset uniqueKecamatan if no Kabupaten/Kota is selected
-      setUniqueKecamatan([]);
-    }
   }, [selectedKabupaten, data]);
   
 
