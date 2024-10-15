@@ -7,20 +7,38 @@ import { Scatter } from 'react-chartjs-2';
 Chart.register(...registerables, annotationPlugin);
 
 // Define a type for your data points
-interface DataPoint {
-  gtfp: number;
-  dlh: number;
-  provinsi: string;
-  kabupaten_kota:string;
-}
+type DataItem = {
+  AksesAirBersih: number;
+  AngkaHarapanHidup: number;
+  Elevation: number;
+  IKP2023: number;
+  JumlahPenduduk: number;
+  Kabkot: string;        // Kabupaten/Kota
+  Kecamatan: string;     // District/Sub-district
+  Kelurahan: string;     // Village/Area
+  NDBI: number;
+  NDDI: number;
+  NDVI: number;
+  NDWI: number;
+  NTL: number;
+  PopulationDensity: number;
+  RWI: number;
+  Rasio: number;
+  RataRataLamaSekolahKel: number;
+  SAVI: number;
+  Slope: number;
+  SoilMoisture: number;
+  Stunting: number;
+};
 
-const QuadrantAnalysis1: React.FC<{ data: DataPoint[] }> = ({ data }) => {
+
+const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
   // Extract data points
   const points = data.map(point => ({
-    x: point.gtfp,
-    y: point.dlh,
-    provinsi: point.provinsi,
-    kabupaten_kota: point.kabupaten_kota
+    x: point.IKP2023,
+    y: point.Stunting,
+    Kabkot: point.Kabkot,
+    Kecamatan: point.Kecamatan
   }));
 
   // Define the data and options for the scatter plot
@@ -48,12 +66,12 @@ const QuadrantAnalysis1: React.FC<{ data: DataPoint[] }> = ({ data }) => {
         callbacks: {
           label: (tooltipItem: TooltipItem<'scatter'>) => {
             // Assert the type of raw to DataPoint
-            const dataPoint = tooltipItem.raw as DataPoint;
-            const provinsi = dataPoint.provinsi;
-            const kabkot = dataPoint.kabupaten_kota;
+            const dataPoint = tooltipItem.raw as DataItem;
+            const Kabkot = dataPoint.Kabkot;
+            const Kecamatan = dataPoint.Kecamatan;
             return [
-              `Provinsi: ${provinsi}`,
-              `Kabupaten/Kota: ${kabkot}`
+              `Kabupaten/Kota: ${Kabkot}`,
+              `Kecamatan: ${Kecamatan}`
             ];
           },
         },
@@ -63,8 +81,8 @@ const QuadrantAnalysis1: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           // Vertical Line
           verticalLine: {
             type: 'line',
-            xMin: 0.8,
-            xMax: 0.8,
+            xMin: 65,
+            xMax: 65,
             borderColor: 'red',
             borderWidth: 2,
           },
@@ -79,8 +97,8 @@ const QuadrantAnalysis1: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           // Quadrant Labels
           quadrantI: {
             type: 'label',
-            xValue: 0.9,
-            yValue: 0.03,
+            xValue: 70,
+            yValue: 1,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -90,14 +108,14 @@ const QuadrantAnalysis1: React.FC<{ data: DataPoint[] }> = ({ data }) => {
               weight: 'bold',
             },
             padding: 6,
-            xAdjust: -10,
-            yAdjust: -10,
+            xAdjust: 10,
+            yAdjust: 10,
             content: 'Kuadran I',
           },
           quadrantII: {
             type: 'label',
-            xValue: 0.5,
-            yValue: 0.04,
+            xValue: 50,
+            yValue: 1,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -113,8 +131,8 @@ const QuadrantAnalysis1: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantIII: {
             type: 'label',
-            xValue: 0.9,
-            yValue: -0.005,
+            xValue: 50,
+            yValue: -0.15,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -130,8 +148,8 @@ const QuadrantAnalysis1: React.FC<{ data: DataPoint[] }> = ({ data }) => {
           },
           quadrantIV: {
             type: 'label',
-            xValue: 0.5,
-            yValue: -0.005,
+            xValue: 70,
+            yValue: -0.15,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,

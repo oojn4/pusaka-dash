@@ -1,5 +1,6 @@
 "use client";
 import BarChart from "@/components/BarChart";
+import QuadrantAnalysis1 from "@/components/QuadrantAnalysis1";
 import TableLokasi from "@/components/TableLokasi";
 import BG from "@/public/img/cloud-forest-landscape.jpg";
 import logo1 from "@/public/img/forkestra.png";
@@ -10760,7 +10761,7 @@ const gtfpDataJson = [{provinsi: 'Aceh',
   jml_penduduk: 213850,
   gtfp: 0.908705}];
 
-  type DataItem = {
+type DataItem = {
     AksesAirBersih: number;
     AngkaHarapanHidup: number;
     Elevation: number;
@@ -11008,13 +11009,13 @@ export default function Home() {
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Dana Lingkungan Hidup</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  {/* <QuadrantAnalysis1 data={kuadran1DataFilter} /> */}
+                  <QuadrantAnalysis1 data={filteredData} />
               </div>
               <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Kapasitas Fiskal</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  {/* <QuadrantAnalysis2 data={kuadran2DataFilter} /> */}
+                 <QuadrantAnalysis1 data={filteredData} />
               </div>
               <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Rekomendasi</h2>
