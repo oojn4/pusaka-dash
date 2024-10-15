@@ -1,7 +1,5 @@
 "use client";
 import BarChart from "@/components/BarChart";
-import QuadrantAnalysis1 from "@/components/QuadrantAnalysis1";
-import QuadrantAnalysis2 from "@/components/QuadrantAnalysis2";
 import TableLokasi from "@/components/TableLokasi";
 import BG from "@/public/img/cloud-forest-landscape.jpg";
 import logo1 from "@/public/img/forkestra.png";
@@ -11,7 +9,7 @@ import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-import { SetStateAction, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -10761,15 +10759,70 @@ const gtfpDataJson = [{provinsi: 'Aceh',
   iku: 71.11167489,
   jml_penduduk: 213850,
   gtfp: 0.908705}];
-// Dapatkan unique kabupaten/kota dan tahun untuk dropdown
-const uniqueKabupatenKota = [...new Set(gtfpDataJson.map((item: { provinsi: any; }) => item.provinsi))];
-const uniqueTahun = [...new Set(gtfpDataJson.map((item: { tahun: any; }) => item.tahun))];
 
+  type DataItem = {
+    AksesAirBersih: number;
+    AngkaHarapanHidup: number;
+    Elevation: number;
+    IKP2023: number;
+    JumlahPenduduk: number;
+    Kabkot: string;        // Kabupaten/Kota
+    Kecamatan: string;     // District/Sub-district
+    Kelurahan: string;     // Village/Area
+    NDBI: number;
+    NDDI: number;
+    NDVI: number;
+    NDWI: number;
+    NTL: number;
+    PopulationDensity: number;
+    RWI: number;
+    Rasio: number;
+    RataRataLamaSekolahKel: number;
+    SAVI: number;
+    Slope: number;
+    SoilMoisture: number;
+    Stunting: number;
+  };
+  
 export default function Home() {
   const router = useRouter(); // Initialize the useRouter hook
   const [activeTab, setActiveTab] = useState("lokasi"); // State to manage active tab
   const [selectedKabupaten, setSelectedKabupaten] = useState(""); // State to manage selected kabupaten
-  const [selectedTahun, setSelectedTahun] = useState(""); // State for selected year
+  const [selectedKecamatan, setSelectedKecamatan] = useState(""); // State for selected year
+  const [data, setData] = useState<DataItem[]>([]);
+  const [uniqueKabupatenKota, setUniqueKabupatenKota] = useState<string[]>([]); // Unique Kabupaten/Kota
+  const [uniqueKecamatan, setUniqueKecamatan] = useState<string[]>([]); // Unique Kecamatan based on selected Kabupaten/Kota
+
+  useEffect(() => {
+    // Fetch the JSON file and set data
+    fetch('/formatted_data.json')
+      .then((response) => response.json())
+      .then((jsonData: DataItem[]) => {
+        setData(jsonData);
+
+        // Get unique Kabupaten/Kota
+        const kabupaten = [...new Set(jsonData.map((item) => item.Kabkot))];
+        setUniqueKabupatenKota(kabupaten);
+      })
+      .catch((error) => console.error('Error fetching JSON data:', error));
+  }, []);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+  useEffect(() => {
+    if (selectedKabupaten) {
+      // Filter data by the selected Kabupaten/Kota
+      const filteredData = data.filter((item) => item.Kabkot === selectedKabupaten);
+      // Get unique Kecamatan for the selected Kabupaten/Kota
+      const kecamatan = [...new Set(filteredData.map((item) => item.Kecamatan))];
+      setUniqueKecamatan(kecamatan);
+    } else {
+      // Reset uniqueKecamatan if no Kabupaten/Kota is selected
+      setUniqueKecamatan([]);
+    }
+  }, [selectedKabupaten, data]);
+  
 
   // Handle filter change
   const handleKabupatenChange = (e: { target: { value: SetStateAction<string>; }; }) => {
@@ -10778,26 +10831,26 @@ export default function Home() {
 
   // Filter gtfpData based on selected kabupaten
   // Filter data based on selected kabupaten/kota and year
-  const filteredData = gtfpDataJson.filter(item => {
+  const filteredData = data.filter((item: { Kabkot: string; Kecamatan: string; }) => {
     return (
-      (selectedKabupaten ? item.provinsi === selectedKabupaten : true) &&
-      (selectedTahun ? item.tahun === parseInt(selectedTahun) : true)
+      (selectedKabupaten ? item.Kabkot === selectedKabupaten : true) &&
+      (selectedKecamatan ? item.Kecamatan === selectedKecamatan : true)
     );
   });
 
-  const kuadran1DataFilter = kuadran1Data.filter(item => {
-    return (
-      (selectedKabupaten ? item.provinsi === selectedKabupaten : true) &&
-      (selectedTahun ? item.tahun === parseInt(selectedTahun) : true)
-    );
-  });
+  // const kuadran1DataFilter = kuadran1Data.filter(item => {
+  //   return (
+  //     (selectedKabupaten ? item.kabkot === selectedKabupaten : true) &&
+  //     (selectedTahun ? item.tahun === parseInt(selectedTahun) : true)
+  //   );
+  // });
 
-  const kuadran2DataFilter = kuadran2Data.filter(item => {
-    return (
-      (selectedKabupaten ? item.provinsi === selectedKabupaten : true) &&
-      (selectedTahun ? item.tahun === parseInt(selectedTahun) : true)
-    );
-  });
+  // const kuadran2DataFilter = kuadran2Data.filter(item => {
+  //   return (
+  //     (selectedKabupaten ? item.provinsi === selectedKabupaten : true) &&
+  //     (selectedTahun ? item.tahun === parseInt(selectedTahun) : true)
+  //   );
+  // });
   const sortBy = (filteredData: any[], key: string) => {
     return filteredData.sort((a, b) => {
       if (a[key] < b[key]) {
@@ -10859,10 +10912,12 @@ export default function Home() {
               className={`px-4 py-2 font-semibold ${activeTab === "lokasi" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
               onClick={() => setActiveTab("lokasi")}
             >
-              Green Total Factor Productivity
+              Indeks Ketahanan Pangan
             </button>
             <button
               className={`px-4 py-2 font-semibold ${activeTab === "kabupaten" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
+              // onClick={() => console.log(filteredData.map((item: { Kabkot: any; }) => console.log(item.Kabkot)) // Should log all `Kabkot` values in the dataset
+              // )}
               onClick={() => setActiveTab("kabupaten")}
             >
               Rekomendasi Kebijakan
@@ -10879,21 +10934,22 @@ export default function Home() {
                 onChange={(e) => setSelectedKabupaten(e.target.value)}
               >
                 <option value="">Semua</option>
-                {uniqueKabupatenKota.map(kabupaten => (
-                  <option key={kabupaten} value={kabupaten}>{kabupaten}</option>
+                
+                {uniqueKabupatenKota.map(Kabupaten => (
+                  <option key={Kabupaten} value={Kabupaten}>{Kabupaten}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label className="text-[#eaeaea]">Tahun: </label>
+              <label className="text-[#eaeaea]">Kecamatan: </label>
               <select
                 className="px-4 py-2 bg-gray-800 text-yellow-200"
-                value={selectedTahun}
-                onChange={(e) => setSelectedTahun(e.target.value)}
+                value={selectedKecamatan}
+                onChange={(e) => setSelectedKecamatan(e.target.value)}
               >
                 <option value="">Semua</option>
-                {uniqueTahun.map(tahun => (
-                  <option key={tahun} value={tahun}>{tahun}</option>
+                {uniqueKecamatan.map(Kecamatan => (
+                  <option key={Kecamatan} value={Kecamatan}>{Kecamatan}</option> 
                 ))}
               </select>
             </div>
@@ -10902,27 +10958,39 @@ export default function Home() {
           {/* Tab Content */}
           {activeTab === "lokasi" ? (
             <div>
-              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Peta Estimasi GTFP</h2>
-              
-              <iframe
+              <h2  style={{ marginLeft: '-20px' }} className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Peta Estimasi GTFP</h2>
+              {/* <iframe
                 src="https://oojn4.github.io/sumatranomics-webmap/"
                 style={{ width: '100%', height: '600px', border: 'none' }}
                 title="Dashboard"
                 className="pt-8 rounded-lg"
-              />
+              /> */}
               <br />
-              <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex gap-4">
-                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <BarChart provinsi={sortBy(filteredData,'ika').map(item => item.provinsi)} tahun={sortBy(filteredData,'ika').map(item => item.tahun)} labels={sortBy(filteredData,'ika').map(item => item.kabupaten_kota)} data={sortBy(filteredData,'ika').map(item => item.ika)} title="Indeks Kualitas Air" />
+              <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
+                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
                 </div>
-                <div style={{ width: '30%' }}>
-                  <BarChart provinsi={sortBy(filteredData,'iku').map(item => item.provinsi)} tahun={sortBy(filteredData,'iku').map(item => item.tahun)} labels={sortBy(filteredData,'iku').map(item => item.kabupaten_kota)} data={sortBy(filteredData,'iku').map(item => item.iku)} title="Indeks Kualitas Udara" />
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
                 </div>
-                <div style={{ width: '30%' }}>
-                  <BarChart provinsi={sortBy(filteredData,'konsumsi_listrik').map(item => item.provinsi)} tahun={sortBy(filteredData,'konsumsi_listrik').map(item => item.tahun)} labels={sortBy(filteredData,'konsumsi_listrik').map(item => item.kabupaten_kota)} data={sortBy(filteredData,'konsumsi_listrik').map(item => item.konsumsi_listrik)} title="Konsumsi Listrik" />
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
                 </div>
               </motion.div>
-              <div className="flex flex-col rounded-lg">
+
+              <br />
+              <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
+                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                </div>
+              </motion.div>
+              <div  style={{ marginLeft: '-20px' }} className="flex flex-col rounded-lg">
                 <br />
                 <TableLokasi data={filteredData} />
                 <br />
@@ -10931,9 +10999,9 @@ export default function Home() {
           ) : (
             <div>
               {/* Content for Evaluasi Kabupaten/Kota */}
-              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Local Spatial Autocorrelation</h2>
+              <h2  style={{ marginLeft: '-20px' }} className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Local Spatial Autocorrelation</h2>
               <br /> 
-              <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+              <div style={{ marginLeft: '-20px' }}  className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <Image
                 alt=""
                 src={LISA}
@@ -10945,13 +11013,13 @@ export default function Home() {
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Dana Lingkungan Hidup</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <QuadrantAnalysis1 data={kuadran1DataFilter} />
+                  {/* <QuadrantAnalysis1 data={kuadran1DataFilter} /> */}
               </div>
               <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Kapasitas Fiskal</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                  <QuadrantAnalysis2 data={kuadran2DataFilter} />
+                  {/* <QuadrantAnalysis2 data={kuadran2DataFilter} /> */}
               </div>
               <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Rekomendasi</h2>

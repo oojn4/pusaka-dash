@@ -41,103 +41,103 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
               <th className="min-w-[220px] px-4 py-4 font-medium text-white xl:pl-11">
               <button
                   type="button"
-                  onClick={() => handleSort('tahun')}
-                  className={`flex items-center ${sortConfig.key === 'tahun' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('Kelurahan')}
+                  className={`flex items-center ${sortConfig.key === 'Kelurahan' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  Tahun
-                  {sortConfig.key === 'tahun' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                  Kelurahan
+                  {sortConfig.key === 'Kelurahan' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[220px] px-4 py-4 font-medium text-white xl:pl-11">
               <button
                   type="button"
-                  onClick={() => handleSort('provinsi')}
-                  className={`flex items-center ${sortConfig.key === 'provinsi' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('IKP2023')}
+                  className={`flex items-center ${sortConfig.key === 'IKP2023' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  Provinsi
-                  {sortConfig.key === 'provinsi' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                  IKP2023
+                  {sortConfig.key === 'IKP2023' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[220px] px-4 py-4 font-medium text-white xl:pl-11">
               <button
                   type="button"
-                  onClick={() => handleSort('kabupaten_kota')}
-                  className={`flex items-center ${sortConfig.key === 'kabupaten_kota' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('RWI')}
+                  className={`flex items-center ${sortConfig.key === 'RWI' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  Kabupaten/Kota
-                  {sortConfig.key === 'kabupaten_kota' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                  RWI
+                  {sortConfig.key === 'RWI' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[150px] px-4 py-4 font-medium text-white">
               <button
                   type="button"
-                  onClick={() => handleSort('ika')}
-                  className={`flex items-center ${sortConfig.key === 'ika' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('PopulationDensity')}
+                  className={`flex items-center ${sortConfig.key === 'PopulationDensity' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  IKA
-                  {sortConfig.key === 'ika' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                  Population Density
+                  {sortConfig.key === 'PopulationDensity' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[120px] px-4 py-4 font-medium text-white">
               <button
                   type="button"
-                  onClick={() => handleSort('iku')}
-                  className={`flex items-center ${sortConfig.key === 'iku' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('NDVI')}
+                  className={`flex items-center ${sortConfig.key === 'NDVI' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                 IKU
-                  {sortConfig.key === 'iku' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                 NDVI
+                  {sortConfig.key === 'NDVI' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[120px] px-4 py-4 font-medium text-white">
               <button
                   type="button"
-                  onClick={() => handleSort('konsumsi_listrik')}
-                  className={`flex items-center ${sortConfig.key === 'konsumsi_listrik' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('NDWI')}
+                  className={`flex items-center ${sortConfig.key === 'NDWI' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                 Konsumsi Listrik
-                  {sortConfig.key === 'konsumsi_listrik' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                 NDWI
+                  {sortConfig.key === 'NDWI' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[120px] px-4 py-4 font-medium text-white">
               <button
                   type="button"
-                  onClick={() => handleSort('pdrb')}
-                  className={`flex items-center ${sortConfig.key === 'pdrb' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('NDDI')}
+                  className={`flex items-center ${sortConfig.key === 'NDDI' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                 PDRB
-                  {sortConfig.key === 'pdrb' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
-                </button>
-              </th>
-              
-              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
-              <button
-                  type="button"
-                  onClick={() => handleSort('tk')}
-                  className={`flex items-center ${sortConfig.key === 'tk' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
-                >
-                 Tenaga Kerja
-                  {sortConfig.key === 'tk' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                 NDDI
+                  {sortConfig.key === 'NDDI' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               
               <th className="min-w-[120px] px-4 py-4 font-medium text-white">
               <button
                   type="button"
-                  onClick={() => handleSort('pmtb')}
-                  className={`flex items-center ${sortConfig.key === 'pmtb' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('SoilMoisture')}
+                  className={`flex items-center ${sortConfig.key === 'SoilMoisture' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                 PMTB
-                  {sortConfig.key === 'pmtb' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                 Soil Moisture
+                  {sortConfig.key === 'SoilMoisture' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('NDBI')}
+                  className={`flex items-center ${sortConfig.key === 'NDBI' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 NDBI
+                  {sortConfig.key === 'NDBI' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[120px] px-4 py-4 font-medium text-white">
               <button
                   type="button"
-                  onClick={() => handleSort('gtfp')}
-                  className={`flex items-center ${sortConfig.key === 'gtfp' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('IKP2023')}
+                  className={`flex items-center ${sortConfig.key === 'IKP2023' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                GTFP
-                  {sortConfig.key === 'gtfp' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                IKP2023
+                  {sortConfig.key === 'IKP2023' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
             </tr>
@@ -147,69 +147,69 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
               <tr key={key}>
                 <td className="border-b border-gray-700 px-1 py-1 pl-9 xl:pl-11">
                   <h5 className="font-medium text-white">
-                    {packageItem.tahun}
+                    {packageItem.Kelurahan}
                   </h5>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1 pl-9 xl:pl-11">
                   <h5 className="font-medium text-white">
-                    {packageItem.provinsi}
+                    {packageItem.IKP2023.toFixed(2)}
                   </h5>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1 pl-9 xl:pl-11">
                   <h5 className="font-medium text-white">
-                  {packageItem.kabupaten_kota}
+                  {packageItem.RWI}
                   </h5>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
-                  {packageItem.ika}
+                  {packageItem.PopulationDensity}
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
-                  {packageItem.iku}
+                  {packageItem.NDVI}
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
-                    {packageItem.konsumsi_listrik}
+                    {packageItem.NDWI}
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
-                    {packageItem.pdrb}
+                    {packageItem.NDDI}
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
-                    {packageItem.tk}
+                    {packageItem.SoilMoisture}
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
-                    {packageItem.pmtb}
+                    {packageItem.NDBI}
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
                 <p
                     className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
-                      packageItem.gtfp >=0.8 
+                      packageItem.IKP2023 >=80 
                         ? "bg-success text-success"
-                        : packageItem.gtfp >=0.6 ? "bg-warning text-warning"
-                        :packageItem.gtfp >= 0.4
+                        : packageItem.IKP2023 >=60 ? "bg-warning text-warning"
+                        :packageItem.IKP2023 >= 40
                           ? "bg-orange-500 text-warning"
                           : "bg-danger text-danger"
                     }`}
                   >
-                    {packageItem.gtfp}
+                    {packageItem.IKP2023.toFixed(2)}
                   </p>
                 </td>
                 {/* <td className="border-b border-gray-700 px-1 py-1">
                   <p
                     className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
-                      packageItem.gtfp >=0.8 
+                      packageItem.IKP2023 >=0.8 
                         ? "bg-success text-success"
-                        : packageItem.gtfp <= 0.4
+                        : packageItem.IKP2023 <= 0.4
                           ? "bg-danger text-danger"
                           : "bg-warning text-warning"
                     }`}

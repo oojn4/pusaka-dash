@@ -23,11 +23,11 @@ interface BarChartProps {
   labels: string[];
   data: number[];
   title?: string;
-  tahun?: number[];
-  provinsi?: string[];
+  kecamatan?: string[];
+  kabupaten?: string[];
 }
 
-const BarChart: React.FC<BarChartProps> = ({ labels, data, title, tahun, provinsi }) => {
+const BarChart: React.FC<BarChartProps> = ({ labels, data, title, kecamatan, kabupaten }) => {
   const chartData = {
     labels,
     datasets: [
@@ -58,16 +58,16 @@ const BarChart: React.FC<BarChartProps> = ({ labels, data, title, tahun, provins
         callbacks: {
           label: function (tooltipItem: any) {
             const label = labels[tooltipItem.dataIndex];
-            const prov = provinsi ? provinsi[tooltipItem.dataIndex] : '';
+            const kab = kabupaten ? kabupaten[tooltipItem.dataIndex] : '';
             const value = data[tooltipItem.dataIndex];
-            const year = tahun ? tahun[tooltipItem.dataIndex] : '';
+            const kec = kecamatan ? kecamatan[tooltipItem.dataIndex] : '';
           
             let tooltipLabel = `${title}: ${value}`;
             // if (prov) {
             //   tooltipLabel += `, Provinsi: ${prov}`;
             // }
-            if (year) {
-              tooltipLabel += `, Tahun: ${year}`;
+            if (kec) {
+              tooltipLabel += `, Desa: ${label}`;
             }
             return tooltipLabel;
           }
