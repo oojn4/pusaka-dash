@@ -65,7 +65,7 @@ const convertGeoJSONPropertiesToNumbers = (featureCollection: FeatureCollection)
     "Merged_Dataset_of_Jateng_and_PredictData_Elevation",
     "Merged_Dataset_of_Jateng_and_PredictData_Slope",
     "Merged_Dataset_of_Jateng_and_PredictData_Jumlah_Penduduk",
-    "Merged_Dataset_of_Jateng_and_PredictData_Rata_Rata_Lama_Sekolah_Kel",
+    "Merged_Dataset_of_Jateng_and_PredictData_RLS",
     "Merged_Dataset_of_Jateng_and_PredictData_Angka_Harapan_Hidup",
     "Merged_Dataset_of_Jateng_and_PredictData_Akses_Air_Bersih",
     "Merged_Dataset_of_Jateng_and_PredictData_Rasio",
@@ -234,7 +234,7 @@ export default function Home() {
             </button>
             <button
               className={`px-4 py-2 font-semibold ${activeTab === "kabupaten" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
-              onClick={() => console.log(filteredDataGeoJSON)}
+              onClick={()  => setActiveTab("kabupaten")}
             >
               Rekomendasi Kebijakan
             </button>

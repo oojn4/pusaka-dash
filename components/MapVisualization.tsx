@@ -85,7 +85,6 @@ const MapVisualization: React.FC<MapVisualizationProps> = ({ geojsonData }) => {
                   <div style="background-color: white; color: black;">
                     <strong>IKP 2023 Random Forest:</strong> ${properties.Merged_Dataset_of_Jateng_and_PredictData_IKP_2023_Random_Forest || 'N/A'}<br/>
                     <strong>ADM4 Name:</strong> ${properties.ADM4_EN || 'N/A'}<br/>
-                    <strong>Population Density:</strong> ${properties.Merged_Dataset_of_Jateng_and_PredictData_IKP_2023_Random_Forest || 'N/A'}
                   </div>
                 `);
               if (map.current) {
