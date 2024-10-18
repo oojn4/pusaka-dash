@@ -1,12 +1,10 @@
 import { Chart, ChartOptions, registerables, TooltipItem } from 'chart.js';
 import annotationPlugin from 'chartjs-plugin-annotation';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Scatter } from 'react-chartjs-2';
 
 // Register chart components and plugins
 Chart.register(...registerables, annotationPlugin);
-
-// Define a type for your data points
 type DataItem = {
   AksesAirBersih: number;
   AngkaHarapanHidup: number;
@@ -30,18 +28,26 @@ type DataItem = {
   SoilMoisture: number;
   Stunting: number;
   DanaDesa: number;
-  DanaDesaPerkapita:number;
+  DanaDesaPerKapita:number;
 };
+interface QuadrantAnalysis1Props {
+  data: DataItem[];  // Must match the parent
+}
 
 
-const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
+const QuadrantAnalysis1: React.FC<QuadrantAnalysis1Props> = ({ data }) => {
   // Extract data points
+  useEffect(() => {
+    console.log(data)
+  }, []);
   const points = data.map(point => ({
     x: point.IKP2023,
-    y: point.DanaDesaPerkapita,
+    y: point.DanaDesaPerKapita,
     ...point,
   }));
-
+  useEffect(() => {
+    console.log(points)
+  }, []);
   // Define the data and options for the scatter plot
   const scatterData = {
     datasets: [
@@ -99,7 +105,7 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
           quadrantI: {
             type: 'label',
             xValue: 70,
-            yValue: 370,
+            yValue: 1000,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -109,14 +115,14 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
               weight: 'bold',
             },
             padding: 6,
-            xAdjust: 10,
-            yAdjust: 10,
+            xAdjust: 0,
+            yAdjust: 0,
             content: 'Kuadran I',
           },
           quadrantII: {
             type: 'label',
             xValue: 50,
-            yValue: 370,
+            yValue: 1000,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -126,8 +132,8 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
               weight: 'bold',
             },
             padding: 6,
-            xAdjust: 10,
-            yAdjust: 10,
+            xAdjust: 0,
+            yAdjust: 0,
             content: 'Kuadran II',
           },
           quadrantIII: {
@@ -143,8 +149,8 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
               weight: 'bold',
             },
             padding: 6,
-            xAdjust: -10,
-            yAdjust: -10,
+            xAdjust: 0,
+            yAdjust: 0,
             content: 'Kuadran III',
           },
           quadrantIV: {
@@ -160,8 +166,8 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
               weight: 'bold',
             },
             padding: 6,
-            xAdjust: 10,
-            yAdjust: -10,
+            xAdjust: 0,
+            yAdjust: 0,
             content: 'Kuadran IV',
           },
         },

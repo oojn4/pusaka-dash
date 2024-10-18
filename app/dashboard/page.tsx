@@ -44,7 +44,7 @@ type DataItem = {
     SoilMoisture: number;
     Stunting: number;
     DanaDesa: number;
-    DanaDesaPerkapita:number;
+    DanaDesaPerKapita:number;
   };
   
 
@@ -148,7 +148,6 @@ export default function Home() {
       (selectedKecamatan ? item.Kecamatan === selectedKecamatan : true)
     );
   });
-  
   // Ensure geojsonData is defined before using it
   const filteredDataGeoJSON: FeatureCollection<Geometry, GeoJsonProperties> | undefined = geojsonData
     ? {
@@ -235,7 +234,7 @@ export default function Home() {
             </button>
             <button
               className={`px-4 py-2 font-semibold ${activeTab === "kabupaten" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
-              onClick={()  => console.log(filteredData)}
+              onClick={()  => setActiveTab("kabupaten")}
             >
               Rekomendasi Kebijakan
             </button>
@@ -367,7 +366,11 @@ export default function Home() {
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran IKP dengan Dana Desa Per Kapita</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+                {filteredData.length > 0 ? (
                   <QuadrantAnalysis1 data={filteredData} />
+                ) : (
+                  <p>No data available for the selected filters</p>
+                )}
               </div>
               {/* <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Kapasitas Fiskal</h2>

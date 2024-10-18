@@ -1,16 +1,12 @@
 "use client";
 import logo from "@/public/img/Network AI Team-3.png";
 import BG from "@/public/img/cloud-forest-landscape.jpg";
-import SATELITE from "@/public/img/earth-observation-abstract-concept-vector-illustration-space-engineering-planetary-science-satellite-service-geoinformation-applied-earth-observation-remote-sensing-abstract-metaphor.png";
 import logo1 from "@/public/img/forkestra.png";
-import METHODS from "@/public/img/metod.jpg";
-import MONEY_INFRA from "@/public/img/sustainable-development-goals-still-life-removebg-preview.png";
 import { Button } from "@mantine/core";
 import { motion } from "framer-motion";
 import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import PieChart from "../components/PieChart";
 const pacifico = Pacifico({
   subsets: ["latin"],
   weight: "400",
@@ -184,17 +180,17 @@ export default function Home() {
               className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold`}
               variants={textAnimate2}
               custom={80}
-              style={{ fontSize: "50px" }}
+              style={{ fontSize: "50px"}}
             >
-              Pengembangan Sektor Keuangan Berwawasan Lingkungan, Sosial, dan Tata Kelola Berkelanjutan:
+             Judul
               </motion.h1>
             <motion.h1
               className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold`}
               variants={textAnimate2}
               custom={80}
-              style={{ fontSize: "40px" }}
+              style={{ fontSize: "20px" }}
             >
-              Tinjauan Evaluasi Green Total Factor Productivity dan Keuangan Daerah Pendekatan Big Data
+              Tinjauan Evaluasi Indeks Ketahanan Pangan dan Dana Desa Pendekatan Big Data
             </motion.h1>
           </motion.div>
           <br /><br />
@@ -231,142 +227,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* New Sections */}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <section className="py-16 px-6 z-1">
-        <div className="max-w-4xl mx-auto">
-         {/* <motion.div >
-          <iframe
-              src="https://oojn4.github.io/forkestra-webmap/"
-              style={{ width: '100%', height: '600px', border: 'none' }}
-              title="Dashboard"
-              className="pt-8 rounded-lg"
-            />
-          </motion.div>
-          <motion.div className="pt-8">
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-            <br />
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-          </motion.div>
-          <motion.div >
-          <iframe
-              src="https://oojn4.github.io/forkestra-ntlmaps/"
-              style={{ width: '100%', height: '600px', border: 'none' }}
-              title="Dashboard"
-              className="pt-8 rounded-lg"
-            />
-          </motion.div>
-          <motion.div className="pt-8">
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-            <br />
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus, perferendis quas consequuntur vero vel ipsum quam reiciendis placeat! Nisi nemo ipsam iure? Fugiat sed impedit non voluptas tempora culpa?
-            </p>
-          </motion.div> */}
-          <motion.h2
-            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
-            id="background"
-          >
-            Latar Belakang
-          </motion.h2>
-          <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div style={{ textAlign: 'left' }}>
-                <h1></h1>
-                <p>
-                Perekonomian Sumatera telah lama <b>bergantung pada sektor pertambangan dan perkebunan</b>, yang menjadi salah satu kontributor utama pertumbuhan ekonomi (BPS, 2023). <b> Eksploitasi sumber daya alam </b> dan <b>alih fungsi lahan perkebunan </b> secara intesif memberikan berbagai <b>dampak negatif</b> terhadap lingkungan, seperti polusi udara, kerusakan lahan, dan degradasi ekosistem. 
-                </p>
-                <br />
-              </div>
-            </div>
-            <div style={{ width: '50%' }}>
-              <PieChart labels={pieLabels} datasetLabel={pieDatasetLabel} data={pieData} />
-            </div>
-            <br />
-          </motion.div>
-
-          <br />
-          <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column'}}>
-              <div>
-              <Image
-                alt=""
-                src={MONEY_INFRA}
-                width={"1500"}
-              />
-              </div>
-            </div>
-            <div style={{ width: '50%' , justifyContent: 'center' ,textAlign: 'right' }} className="">
-              <p></p>
-              <p>Green Total Factor Productivity (GTFP) merupakan salah satu indikator yang digunakan untuk mengukur tingkat produktivitas hijau suatu wilayah. Indikator ini tidak terbatas hanya mengukur seberapa efisien suatu unit produksi dalam menghasilkan output yang diinginkan, melainkan juga memperhitungkan dampak negatif yang timbul pada lingkungan, seperti emisi atau polusi ​(Rusiawan dkk., 2015b)</p>
-              <p></p>
-            </div>
-            <br />
-          </motion.div>
-          <br />
-          <motion.div className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg flex gap-4">
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div style={{ textAlign: 'left' }}>
-                <h1></h1>
-                <p>
-                Data pembangun GTFP banyak tidak tersedia pada level kabupaten/kota. Disisi lain, citra satelit dan geospatial big data berpotensi sebagai sumber data alternatif untuk melengkapi data pembangun  GTFP level kabupaten/kota. Hal ini disebabkan data citra satelit dan geospatial big data memiliki keunggulan dalam pengumpulan data yang cepat, mudah, murah, up-to-date, dan dapat mengakses wilayah-wilayah yang sulit dijangkau langsung di lapangan. 
-                </p>
-                <br />
-              </div>
-            </div>
-            <div style={{ width: '50%' }}>
-            <Image
-                alt=""
-                src={SATELITE}
-                width={"1500"}
-              />
-            </div>
-            <br />
-          </motion.div>
-
-          <motion.h2
-            className="pt-16 text-4xl font-bold text-yellow-200 mb-8"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
-            id="method"
-          >
-            Metodologi
-          </motion.h2>
-          <Image
-            alt=""
-            src={METHODS}
-            className="object-cover brightness-100"
-            style={{ width: "100%" }}
-          />
-          <motion.div className="pt-8">
-            <p className="text-lg text-[#eaeaea] bg-gray-800 p-6 rounded-lg shadow-lg">
-            Sumber data penelitian ini terbagi menjadi 3 bagian yaitu citra satelit, OSM, dan data ofisial statistik milik Badan Informasi Geospasial (BIG), Badan Pusat Statistik (BPS), dan Perusahaan Listrik Negara (PLN). Selanjutnya dilakukan preprocessing untuk menghasilka variabel-variabel yang digunakan sebagai input dan ouput dalam menghitung GTFP. Metode Multicriteria Decision Analysis (MCDA) digunakan untuk membangun variabel Indeks Kualitas Udara (IKU) dan Indeks Kualitas Air (IKA). Sedangkan metode machine learning digunaka untuk mengestimasi konsumsi listrik level kabupaten/kota. Selanjutnya dilakukan analisis spasial untuk mengukur pengaruh regulasi lingkungan, kapasitas fiskal, dan teknologi digital terhadap nilai GTFP 
-            </p>
-            <br />
-          </motion.div>
-        </div>
-      </section>
+      
     </main>
   );
 }
