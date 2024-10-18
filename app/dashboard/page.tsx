@@ -98,7 +98,7 @@ const convertGeoJSONPropertiesToNumbers = (featureCollection: FeatureCollection)
 
 export default function Home() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState("kabupaten"); 
+  const [activeTab, setActiveTab] = useState("lokasi"); 
   const [selectedKabupaten, setSelectedKabupaten] = useState("");   
   const [selectedKecamatan, setSelectedKecamatan] = useState(""); 
   const [data, setData] = useState<DataItem[]>([]);
