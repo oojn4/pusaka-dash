@@ -347,17 +347,26 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">
                 <p
-                    className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
-                      packageItem.IKP2023 >=80 
-                        ? "bg-success text-success"
-                        : packageItem.IKP2023 >=60 ? "bg-warning text-warning"
-                        :packageItem.IKP2023 >= 40
-                          ? "bg-orange-500 text-warning"
-                          : "bg-danger text-danger"
-                    }`}
-                  >
-                    {packageItem.IKP2023.toFixed(2)}
-                  </p>
+                className={`inline-flex rounded-full px-3 py-1 text-sm font-medium ${
+                  packageItem.IKP2023 >= 83.255
+                    ? "bg-success text-success"
+                    : packageItem.IKP2023 >= 65.704
+                    ? "bg-orange-500 text-warning"
+                    : packageItem.IKP2023 >= 62.141
+                    ? "bg-[#fb6a4a] text-warning"
+                    : packageItem.IKP2023 >= 59.012
+                    ? "bg-[#ef3b2c] text-warning"
+                    : packageItem.IKP2023 >= 55.927
+                    ? "bg-[#cb181d] text-warning"
+                    : packageItem.IKP2023 >= 52.593
+                    ? "bg-[#a50f15] text-warning"
+                    : packageItem.IKP2023 >= 45.033
+                    ? "bg-[#67000d] text-warning"
+                    : "bg-danger text-danger"
+                }`}
+              >
+                {packageItem.IKP2023.toFixed(2)}
+              </p>
                 </td>
                 {/* <td className="border-b border-gray-700 px-1 py-1">
                   <p
