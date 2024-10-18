@@ -203,7 +203,7 @@ export default function Home() {
         <div className={`text-xl font-bold text-yellow-200 underline ${pacifico.className}`}>
           <div className={`w-[600px] flex items-center z-10`}>
             <Image alt="" src={logo} width={100} />
-            <Image alt="" src={logo1} width={100} />
+            <Image alt="" src={logo1}  height={10}  width={70} />
           </div>
         </div>
         <ul className="w-[600px] flex justify-between items-center">
