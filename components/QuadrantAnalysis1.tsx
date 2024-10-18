@@ -29,6 +29,8 @@ type DataItem = {
   Slope: number;
   SoilMoisture: number;
   Stunting: number;
+  DanaDesa: number;
+  DanaDesaPerkapita:number;
 };
 
 
@@ -36,9 +38,8 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
   // Extract data points
   const points = data.map(point => ({
     x: point.IKP2023,
-    y: point.Stunting,
-    Kabkot: point.Kabkot,
-    Kecamatan: point.Kecamatan
+    y: point.DanaDesaPerkapita,
+    ...point,
   }));
 
   // Define the data and options for the scatter plot
@@ -81,16 +82,16 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
           // Vertical Line
           verticalLine: {
             type: 'line',
-            xMin: 65,
-            xMax: 65,
+            xMin: 59,
+            xMax: 59,
             borderColor: 'red',
             borderWidth: 2,
           },
           // Horizontal Line
           horizontalLine: {
             type: 'line',
-            yMin: 0.013,
-            yMax: 0.013,
+            yMin: 356,
+            yMax: 356,
             borderColor: 'blue',
             borderWidth: 2,
           },
@@ -98,7 +99,7 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
           quadrantI: {
             type: 'label',
             xValue: 70,
-            yValue: 1,
+            yValue: 370,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -115,7 +116,7 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
           quadrantII: {
             type: 'label',
             xValue: 50,
-            yValue: 1,
+            yValue: 370,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -132,7 +133,7 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
           quadrantIII: {
             type: 'label',
             xValue: 50,
-            yValue: -0.15,
+            yValue: 200,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -149,7 +150,7 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
           quadrantIV: {
             type: 'label',
             xValue: 70,
-            yValue: -0.15,
+            yValue: 200,
             backgroundColor: 'rgba(0, 0, 0, 0.3)',
             borderColor: 'rgba(0, 0, 0, 0.8)',
             borderWidth: 1,
@@ -172,7 +173,7 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
         position: 'bottom',
         title: {
           display: true,
-          text: 'GTFP',  // Add your Y axis label here
+          text: 'IKP',  // Add your Y axis label here
           color: '#fff',
         },
         grid: {
@@ -185,7 +186,7 @@ const QuadrantAnalysis1: React.FC<{ data: DataItem[] }> = ({ data }) => {
       y: {
         title: {
           display: true,
-          text: "Dana Lingkungan Hidup",  // Add your Y axis label here
+          text: "Dana Desa Perkapita",  // Add your Y axis label here
           color: '#fff',
         },
         grid: {

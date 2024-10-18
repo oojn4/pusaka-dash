@@ -42,16 +42,25 @@ const MapVisualization: React.FC<MapVisualizationProps> = ({ geojsonData }) => {
             layout: {},
             paint: {
               'fill-color': [
-                'interpolate',
-                ['linear'],
-                ['get', 'Merged_Dataset_of_Jateng_and_PredictData_IKP_2023_Random_Forest'],
-                0,
-                '#2DC4B2', // Low value color
-                100,
-                '#F22C2C', // High value color
+                'case',
+                ['==', ['get', 'Merged_Dataset_of_Jateng_and_PredictData_IKP_2023_Random_Forest'], null], 
+                'rgba(0, 0, 0, 0)', // Transparan jika N/A
+                [
+                  'interpolate',
+                  ['linear'],
+                  ['get', 'Merged_Dataset_of_Jateng_and_PredictData_IKP_2023_Random_Forest'],
+                  45.033, '#67000d', // Dark red
+                  52.593, '#a50f15', // Slightly lighter red
+                  55.927, '#cb181d', // Reddish-brown
+                  59.012, '#ef3b2c', // Medium red
+                  62.141, '#fb6a4a', // Light peach
+                  65.704, '#fee5d9', // Very light peach
+                  83.255, '#fcbba1'  // Lightest color at the top end
+                ]
               ],
-              'fill-opacity': 0.6, // Adjust fill opacity
-            },
+              'fill-opacity': 0.6 // Adjust fill opacity if necessary
+            }
+            ,
           });
 
           // Add a line layer for borders around polygons
@@ -83,8 +92,8 @@ const MapVisualization: React.FC<MapVisualizationProps> = ({ geojsonData }) => {
                 .setLngLat(coordinates)
                 .setHTML(`
                   <div style="background-color: white; color: black;">
-                    <strong>IKP 2023 Random Forest:</strong> ${properties.Merged_Dataset_of_Jateng_and_PredictData_IKP_2023_Random_Forest || 'N/A'}<br/>
-                    <strong>ADM4 Name:</strong> ${properties.ADM4_EN || 'N/A'}<br/>
+                    <strong>Estimasi IKP 2023:</strong> ${properties.Merged_Dataset_of_Jateng_and_PredictData_IKP_2023_Random_Forest || 'N/A'}<br/>
+                    <strong>Kelurahan/Desa:</strong> ${properties.ADM4_EN || 'N/A'}<br/>
                   </div>
                 `);
               if (map.current) {

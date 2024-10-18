@@ -41,21 +41,21 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
               <th className="min-w-[220px] px-4 py-4 font-medium text-white xl:pl-11">
               <button
                   type="button"
-                  onClick={() => handleSort('Kelurahan')}
-                  className={`flex items-center ${sortConfig.key === 'Kelurahan' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('Kecamatan')}
+                  className={`flex items-center ${sortConfig.key === 'Kecamatan' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  Kelurahan
-                  {sortConfig.key === 'Kelurahan' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                  Kecamatan
+                  {sortConfig.key === 'Kecamatan' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[220px] px-4 py-4 font-medium text-white xl:pl-11">
               <button
                   type="button"
-                  onClick={() => handleSort('IKP2023')}
-                  className={`flex items-center ${sortConfig.key === 'IKP2023' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                  onClick={() => handleSort('Kelurahan')}
+                  className={`flex items-center ${sortConfig.key === 'Kelurahan' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                  IKP2023
-                  {sortConfig.key === 'IKP2023' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                  Desa/Kelurahan
+                  {sortConfig.key === 'Kelurahan' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>
               <th className="min-w-[220px] px-4 py-4 font-medium text-white xl:pl-11">
@@ -133,6 +133,101 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
               <th className="min-w-[120px] px-4 py-4 font-medium text-white">
               <button
                   type="button"
+                  onClick={() => handleSort('SAVI')}
+                  className={`flex items-center ${sortConfig.key === 'SAVI' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 SAVI
+                  {sortConfig.key === 'SAVI' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('NTL')}
+                  className={`flex items-center ${sortConfig.key === 'NTL' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 NTL
+                  {sortConfig.key === 'NTL' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('Elevation')}
+                  className={`flex items-center ${sortConfig.key === 'Elevation' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 Elevation
+                  {sortConfig.key === 'Elevation' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('Slope')}
+                  className={`flex items-center ${sortConfig.key === 'Slope' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 Slope
+                  {sortConfig.key === 'Slope' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('JumlahPenduduk')}
+                  className={`flex items-center ${sortConfig.key === 'JumlahPenduduk' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 Jumlah Penduduk
+                  {sortConfig.key === 'JumlahPenduduk' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('RLS')}
+                  className={`flex items-center ${sortConfig.key === 'RLS' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 RLS
+                  {sortConfig.key === 'RLS' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('AHH')}
+                  className={`flex items-center ${sortConfig.key === 'AHH' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 AHH
+                  {sortConfig.key === 'AHH' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('AksesAirBersih')}
+                  className={`flex items-center ${sortConfig.key === 'AksesAirBersih' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 Akses Air Bersih
+                  {sortConfig.key === 'AksesAirBersih' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>              
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('Rasio')}
+                  className={`flex items-center ${sortConfig.key === 'Rasio' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 Rasio
+                  {sortConfig.key === 'Rasio' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
+                  onClick={() => handleSort('Stunting')}
+                  className={`flex items-center ${sortConfig.key === 'Stunting' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
+                >
+                 Stunting
+                  {sortConfig.key === 'Stunting' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
+                </button>
+              </th>
+              
+              <th className="min-w-[120px] px-4 py-4 font-medium text-white">
+              <button
+                  type="button"
                   onClick={() => handleSort('IKP2023')}
                   className={`flex items-center ${sortConfig.key === 'IKP2023' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
@@ -152,7 +247,7 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1 pl-9 xl:pl-11">
                   <h5 className="font-medium text-white">
-                    {packageItem.IKP2023.toFixed(2)}
+                    {packageItem.Kelurahan}
                   </h5>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1 pl-9 xl:pl-11">
@@ -188,6 +283,66 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
                 <td className="border-b border-gray-700 px-1 py-1">
                   <p className="text-white">
                     {packageItem.NDBI}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.SAVI}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.NTL}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.Elevation}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.Slope}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.JumlahPenduduk}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.RLS}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.AHH}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.AksesAirBersih}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.Rasio}
+                  </p>
+                </td>
+                
+                <td className="border-b border-gray-700 px-1 py-1">
+                  <p className="text-white">
+                    {packageItem.Stunting}
                   </p>
                 </td>
                 <td className="border-b border-gray-700 px-1 py-1">

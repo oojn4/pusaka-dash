@@ -5,7 +5,6 @@ import QuadrantAnalysis1 from "@/components/QuadrantAnalysis1";
 import TableLokasi from "@/components/TableLokasi";
 import BG from "@/public/img/cloud-forest-landscape.jpg";
 import logo1 from "@/public/img/forkestra.png";
-import LISA from "@/public/img/LISA.jpg";
 import logo from "@/public/img/Network AI Team-3.png";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { motion } from "framer-motion";
@@ -44,6 +43,8 @@ type DataItem = {
     Slope: number;
     SoilMoisture: number;
     Stunting: number;
+    DanaDesa: number;
+    DanaDesaPerkapita:number;
   };
   
 
@@ -97,7 +98,7 @@ const convertGeoJSONPropertiesToNumbers = (featureCollection: FeatureCollection)
 
 export default function Home() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState("lokasi"); 
+  const [activeTab, setActiveTab] = useState("kabupaten"); 
   const [selectedKabupaten, setSelectedKabupaten] = useState("");   
   const [selectedKecamatan, setSelectedKecamatan] = useState(""); 
   const [data, setData] = useState<DataItem[]>([]);
@@ -201,9 +202,9 @@ export default function Home() {
         className="fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-md flex sm:flex-row flex-col justify-between py-3 items-center z-10"
       >
         <div className={`text-xl font-bold text-yellow-200 underline ${pacifico.className}`}>
-          <div className={`w-[600px] flex items-center`}>
+          <div className={`w-[600px] flex items-center z-10`}>
             <Image alt="" src={logo} width={100} />
-            <Image alt="" src={logo1} height={10} width={70} />
+            <Image alt="" src={logo1} width={100} />
           </div>
         </div>
         <ul className="w-[600px] flex justify-between items-center">
@@ -234,7 +235,7 @@ export default function Home() {
             </button>
             <button
               className={`px-4 py-2 font-semibold ${activeTab === "kabupaten" ? "bg-yellow-200 text-gray-800" : "bg-gray-800 text-yellow-200"}`}
-              onClick={()  => setActiveTab("kabupaten")}
+              onClick={()  => console.log(filteredData)}
             >
               Rekomendasi Kebijakan
             </button>
@@ -274,13 +275,7 @@ export default function Home() {
           {/* Tab Content */}
           {activeTab === "lokasi" ? (
             <div>
-              <h2  style={{ marginLeft: '-20px' }} className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Peta Estimasi GTFP</h2>
-              {/* <iframe
-                src="https://oojn4.github.io/sumatranomics-webmap/"
-                style={{ width: '100%', height: '600px', border: 'none' }}
-                title="Dashboard"
-                className="pt-8 rounded-lg"
-              /> */}
+              <h2  style={{ marginLeft: '-20px' }} className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Peta Estimasi IKP</h2>
               <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
               <MapVisualization geojsonData={filteredDataGeoJSON}></MapVisualization>
               </motion.div>
@@ -288,26 +283,76 @@ export default function Home() {
               <br />
               <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
                 <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                  <BarChart kabupaten={sortBy(filteredData,'PopulationDensity').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'PopulationDensity').map(item => item.Kecamatan)} labels={sortBy(filteredData,'PopulationDensity').map(item => item.Kelurahan)} data={sortBy(filteredData,'PopulationDensity').map(item => item.PopulationDensity)} title="Population Density" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                  <BarChart kabupaten={sortBy(filteredData,'RWI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'RWI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'RWI').map(item => item.Kelurahan)} data={sortBy(filteredData,'RWI').map(item => item.RWI.toFixed(2))} title="RWI" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                  <BarChart kabupaten={sortBy(filteredData,'NDVI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDVI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDVI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDVI').map(item => item.NDVI.toFixed(2))} title="NDVI" />
                 </div>
               </motion.div>
 
               <br />
               <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
                 <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                  <BarChart kabupaten={sortBy(filteredData,'NDWI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDWI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDWI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDWI').map(item => item.NDWI.toFixed(2))} title="NDWI" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                  <BarChart kabupaten={sortBy(filteredData,'NDDI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDDI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDDI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDDI').map(item => item.NDDI.toFixed(2))} title="NDDI" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="IKP2023" />
+                  <BarChart kabupaten={sortBy(filteredData,'SoilMoisture').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'SoilMoisture').map(item => item.Kecamatan)} labels={sortBy(filteredData,'SoilMoisture').map(item => item.Kelurahan)} data={sortBy(filteredData,'SoilMoisture').map(item => item.SoilMoisture.toFixed(2))} title="SoilMoisture" />
+                </div>
+              </motion.div>
+              <br />
+              <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
+                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'NDBI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDBI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDBI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDBI').map(item => item.NDBI.toFixed(2))} title="NDBI" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'SAVI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'SAVI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'SAVI').map(item => item.Kelurahan)} data={sortBy(filteredData,'SAVI').map(item => item.SAVI.toFixed(2))} title="SAVI" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'NTL').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NTL').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NTL').map(item => item.Kelurahan)} data={sortBy(filteredData,'NTL').map(item => item.NTL.toFixed(2))} title="NTL" />
+                </div>
+              </motion.div>
+              
+              <br />
+              <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
+                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'Elevation').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'Elevation').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Elevation').map(item => item.Kelurahan)} data={sortBy(filteredData,'Elevation').map(item => item.Elevation.toFixed(2))} title="Elevation" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'Slope').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'Slope').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Slope').map(item => item.Kelurahan)} data={sortBy(filteredData,'Slope').map(item => item.Slope.toFixed(2))} title="Slope" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kecamatan)} labels={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kelurahan)} data={sortBy(filteredData,'JumlahPenduduk').map(item => item.JumlahPenduduk.toFixed(2))} title="Jumlah Penduduk" />
+                </div>
+              </motion.div>
+              
+              <br />
+              <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
+                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'RLS').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'RLS').map(item => item.Kecamatan)} labels={sortBy(filteredData,'RLS').map(item => item.Kelurahan)} data={sortBy(filteredData,'RLS').map(item => item.RLS.toFixed(2))} title="RLS" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'AHH').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'AHH').map(item => item.Kecamatan)} labels={sortBy(filteredData,'AHH').map(item => item.Kelurahan)} data={sortBy(filteredData,'AHH').map(item => item.AHH.toFixed(2))} title="AHH" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'AksesAirBersih').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'AksesAirBersih').map(item => item.Kecamatan)} labels={sortBy(filteredData,'AksesAirBersih').map(item => item.Kelurahan)} data={sortBy(filteredData,'AksesAirBersih').map(item => item.AksesAirBersih.toFixed(2))} title="Akses Air Bersih" />
+                </div>
+              </motion.div>
+              <br />
+              <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
+                <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'Rasio').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'Rasio').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Rasio').map(item => item.Kelurahan)} data={sortBy(filteredData,'Rasio').map(item => item.Rasio.toFixed(2))} title="Rasio" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'Stunting').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'Stunting').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Stunting').map(item => item.Kelurahan)} data={sortBy(filteredData,'Stunting').map(item => item.Stunting.toFixed(2))} title="Stunting" />
+                </div>
+                <div style={{ width: '33.3%' }}>
+                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'AksesAirBersih').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="Estimasi IKP 2023" />
                 </div>
               </motion.div>
               <div  style={{ marginLeft: '-20px' }} className="flex flex-col rounded-lg">
@@ -319,28 +364,17 @@ export default function Home() {
           ) : (
             <div>
               {/* Content for Evaluasi Kabupaten/Kota */}
-              <h2  style={{ marginLeft: '-20px' }} className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Local Spatial Autocorrelation</h2>
-              <br /> 
-              <div style={{ marginLeft: '-20px' }}  className="bg-gray-800 p-6 rounded-lg shadow-lg">
-              <Image
-                alt=""
-                src={LISA}
-                className="object-cover brightness-100"
-                style={{ width: "100%" }}
-              />
-              </div>
-              <br />
-              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Dana Lingkungan Hidup</h2>
+              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran IKP dengan Dana Desa Per Kapita</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
                   <QuadrantAnalysis1 data={filteredData} />
               </div>
-              <br />
+              {/* <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Kapasitas Fiskal</h2>
               <br /> 
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
                  <QuadrantAnalysis1 data={filteredData} />
-              </div>
+              </div> */}
               <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Rekomendasi</h2>
               <br /> 
