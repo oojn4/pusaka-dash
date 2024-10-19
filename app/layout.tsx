@@ -7,8 +7,8 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Evaluasi Green Total Factor Productivity dan Keuangan Daerah: Pendekatan Big Data untuk Keberlanjutan Sektor Keuangan",
-  description: "Pengembangan Sektor Keuangan Berwawasan Lingkungan, Sosial, dan Tata Kelola Berkelanjutan: Tinjauan Evaluasi Green Total Factor Productivity dan Keuangan Daerah Pendekatan Big Data",
+  title: "Strategi Optimalisasi Potensi Kelurahan/Desa di Jawa Tengah Sebagai Penumpu Pangan Nasional dengan Pemetaan Granular Penginderaan Jauh dan Model Kecerdasan Artifisial",
+  description: "",
 };
 
 export default function RootLayout({

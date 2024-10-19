@@ -76,9 +76,11 @@ const QuadrantAnalysis1: React.FC<QuadrantAnalysis1Props> = ({ data }) => {
             const dataPoint = tooltipItem.raw as DataItem;
             const Kabkot = dataPoint.Kabkot;
             const Kecamatan = dataPoint.Kecamatan;
+            const Desa = dataPoint.Kelurahan;
             return [
               `Kabupaten/Kota: ${Kabkot}`,
-              `Kecamatan: ${Kecamatan}`
+              `Kecamatan: ${Kecamatan}`,
+              `Desa: ${Desa}`
             ];
           },
         },

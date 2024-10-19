@@ -146,7 +146,7 @@ export default function Home() {
           <Image alt="" src={logo1} height={10}  width={70} />
         </div>
         <ul className="w-[600px] flex justify-between items-center">
-          <li className="font-semibold text-[#eaeaea]"><a href="/">Penjelasan Umum</a></li>
+          <li className="font-semibold text-[#eaeaea]"><a href="/">Beranda</a></li>
           <li className="font-semibold text-[#eaeaea]"><a href="/dashboard">Dashboard</a></li>
           <li></li>
           <li></li>
@@ -180,17 +180,25 @@ export default function Home() {
               className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold`}
               variants={textAnimate2}
               custom={80}
-              style={{ fontSize: "50px"}}
+              style={{ fontSize: "50px", marginLeft: '-20px' }}
             >
-             Judul
+             Strategi Optimalisasi Potensi Kelurahan/Desa 
+              </motion.h1>
+              <motion.h1
+              className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold`}
+              variants={textAnimate2}
+              custom={80}
+              style={{ fontSize: "50px", marginLeft: '-20px' }}
+            >
+             di Jawa Tengah Sebagai Penumpu Pangan Nasional dengan Pemetaan Granular Penginderaan Jauh dan Model Kecerdasan Artifisial
               </motion.h1>
             <motion.h1
               className={`lg:text-8xl sm:text-5xl text-xl text-yellow-200 tracking-tighter font-bold`}
               variants={textAnimate2}
               custom={80}
-              style={{ fontSize: "20px" }}
+              style={{ fontSize: "20px" , marginLeft: '-20px' }}
             >
-              Tinjauan Evaluasi Indeks Ketahanan Pangan dan Dana Desa Pendekatan Big Data
+              
             </motion.h1>
           </motion.div>
           <br /><br />
