@@ -105,7 +105,6 @@ export default function Home() {
   const [uniqueKabupatenKota, setUniqueKabupatenKota] = useState<string[]>([]);
   const [uniqueKecamatan, setUniqueKecamatan] = useState<string[]>([]); 
   const [geojsonData, setGeojsonData] = useState<GeoJSON.FeatureCollection>();
-
   
   useEffect(() => {
     fetch('/formatted_data.json')
@@ -132,7 +131,7 @@ export default function Home() {
       });
   }, []);
   useEffect(() => {
-    const filteredData = data.filter((item) => item.Kabkot === selectedKabupaten);
+    // const filteredData = data.filter((item) => item.Kabkot === selectedKabupaten);
     const kecamatan = [...new Set(filteredData.map((item) => item.Kecamatan))];
     setUniqueKecamatan(kecamatan);
 }, [selectedKabupaten, data]);
@@ -372,12 +371,6 @@ export default function Home() {
                   <p>No data available for the selected filters</p>
                 )}
               </div>
-              {/* <br />
-              <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Analisis Kuadran GTFP dengan Kapasitas Fiskal</h2>
-              <br /> 
-              <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                 <QuadrantAnalysis1 data={filteredData} />
-              </div> */}
               <br />
               <h2 className="pt-2 text-lg text-[#eaeaea] bg-gray-800 p-2 shadow-lg text-center">Rekomendasi</h2>
               <br /> 
@@ -388,7 +381,7 @@ export default function Home() {
 
               <div className="mt-4">
                 <h2 className="text-xl font-bold text-green-400">
-                  Kuadran I (Zona Mandiri Pangan):
+                  Kuadran I (Desa Mandiri Pangan):
                 </h2>
                 <ul className="list-disc ml-5 mt-2">
                   <li>
@@ -408,7 +401,7 @@ export default function Home() {
 
               <div className="mt-6">
                 <h2 className="text-xl font-bold text-yellow-400">
-                  Kuadran II (Zona Efisiensi):
+                  Kuadran II (Desa Optimalisasi Sumber Daya):
                 </h2>
                 <ul className="list-disc ml-5 mt-2">
                   <li>
@@ -423,7 +416,7 @@ export default function Home() {
 
               <div className="mt-6">
                 <h2 className="text-xl font-bold text-red-400">
-                  Kuadran III (Zona Krisis Pangan):
+                  Kuadran III (Desa Prioritas Penanganan Krisis Pangan):
                 </h2>
                 <ul className="list-disc ml-5 mt-2">
                   <li>
@@ -438,7 +431,7 @@ export default function Home() {
 
               <div className="mt-6">
                 <h2 className="text-xl font-bold text-blue-400">
-                  Kuadran IV (Zona Berpotensi):
+                  Kuadran IV (Desa Potensi Pangan):
                 </h2>
                 <ul className="list-disc ml-5 mt-2">
                   <li>
