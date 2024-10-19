@@ -210,7 +210,7 @@ const TableLokasi = ({ data = [] }: { data: any[] }) => {
                   onClick={() => handleSort('Rasio')}
                   className={`flex items-center ${sortConfig.key === 'Rasio' ? (sortConfig.direction === 'asc' ? 'text-blue-500' : 'text-red-500') : ''}`}
                 >
-                 Rasio
+                 Rasio Kecukupan Tenaga Kesehatan
                   {sortConfig.key === 'Rasio' ? (sortConfig.direction === 'asc' ? ' 🔼' : ' 🔽') : ''}
                 </button>
               </th>

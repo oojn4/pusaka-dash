@@ -287,20 +287,20 @@ export default function Home() {
                   <BarChart kabupaten={sortBy(filteredData,'RWI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'RWI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'RWI').map(item => item.Kelurahan)} data={sortBy(filteredData,'RWI').map(item => item.RWI.toFixed(2))} title="RWI" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'NDVI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDVI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDVI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDVI').map(item => item.NDVI.toFixed(2))} title="NDVI" />
+                  <BarChart kabupaten={sortBy(filteredData,'Stunting').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDVI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Stunting').map(item => item.Kelurahan)} data={sortBy(filteredData,'Stunting').map(item => item.Stunting.toFixed(2))} title="Stunting" />
                 </div>
               </motion.div>
 
               <br />
               <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
                 <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'NDWI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDWI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDWI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDWI').map(item => item.NDWI.toFixed(2))} title="NDWI" />
+                  <BarChart kabupaten={sortBy(filteredData,'AHH').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'AHH').map(item => item.Kecamatan)} labels={sortBy(filteredData,'AHH').map(item => item.Kelurahan)} data={sortBy(filteredData,'AHH').map(item => item.AHH.toFixed(2))} title="AHH" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'NDDI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDDI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDDI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDDI').map(item => item.NDDI.toFixed(2))} title="NDDI" />
+                  <BarChart kabupaten={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kecamatan)} labels={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kelurahan)} data={sortBy(filteredData,'JumlahPenduduk').map(item => item.JumlahPenduduk.toFixed(2))} title="Jumlah Penduduk" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'SoilMoisture').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'SoilMoisture').map(item => item.Kecamatan)} labels={sortBy(filteredData,'SoilMoisture').map(item => item.Kelurahan)} data={sortBy(filteredData,'SoilMoisture').map(item => item.SoilMoisture.toFixed(2))} title="SoilMoisture" />
+                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'IKP2023').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="Estimasi IKP 2023" />
                 </div>
               </motion.div>
               <br />
@@ -325,7 +325,7 @@ export default function Home() {
                   <BarChart kabupaten={sortBy(filteredData,'Slope').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'Slope').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Slope').map(item => item.Kelurahan)} data={sortBy(filteredData,'Slope').map(item => item.Slope.toFixed(2))} title="Slope" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kecamatan)} labels={sortBy(filteredData,'JumlahPenduduk').map(item => item.Kelurahan)} data={sortBy(filteredData,'JumlahPenduduk').map(item => item.JumlahPenduduk.toFixed(2))} title="Jumlah Penduduk" />
+                  <BarChart kabupaten={sortBy(filteredData,'NDDI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDDI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDDI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDDI').map(item => item.NDDI.toFixed(2))} title="NDDI" />
                 </div>
               </motion.div>
               
@@ -335,7 +335,7 @@ export default function Home() {
                   <BarChart kabupaten={sortBy(filteredData,'RLS').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'RLS').map(item => item.Kecamatan)} labels={sortBy(filteredData,'RLS').map(item => item.Kelurahan)} data={sortBy(filteredData,'RLS').map(item => item.RLS.toFixed(2))} title="RLS" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'AHH').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'AHH').map(item => item.Kecamatan)} labels={sortBy(filteredData,'AHH').map(item => item.Kelurahan)} data={sortBy(filteredData,'AHH').map(item => item.AHH.toFixed(2))} title="AHH" />
+                  <BarChart kabupaten={sortBy(filteredData,'NDWI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDWI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDWI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDWI').map(item => item.NDWI.toFixed(2))} title="NDWI" />
                 </div>
                 <div style={{ width: '33.3%' }}>
                   <BarChart kabupaten={sortBy(filteredData,'AksesAirBersih').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'AksesAirBersih').map(item => item.Kecamatan)} labels={sortBy(filteredData,'AksesAirBersih').map(item => item.Kelurahan)} data={sortBy(filteredData,'AksesAirBersih').map(item => item.AksesAirBersih.toFixed(2))} title="Akses Air Bersih" />
@@ -344,13 +344,13 @@ export default function Home() {
               <br />
               <motion.div style={{ marginLeft: '-20px' }} className="pt-8 text-lg text-[#eaeaea] bg-gray-800 p-6 shadow-lg flex">
                 <div style={{ flex: 2, display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'Rasio').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'Rasio').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Rasio').map(item => item.Kelurahan)} data={sortBy(filteredData,'Rasio').map(item => item.Rasio.toFixed(2))} title="Rasio" />
+                  <BarChart kabupaten={sortBy(filteredData,'Rasio').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'Rasio').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Rasio').map(item => item.Kelurahan)} data={sortBy(filteredData,'Rasio').map(item => item.Rasio.toFixed(2))} title="Rasio Kecukupan Tenaga Kesehatan" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'Stunting').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'Stunting').map(item => item.Kecamatan)} labels={sortBy(filteredData,'Stunting').map(item => item.Kelurahan)} data={sortBy(filteredData,'Stunting').map(item => item.Stunting.toFixed(2))} title="Stunting" />
+                  <BarChart kabupaten={sortBy(filteredData,'NDVI').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'NDVI').map(item => item.Kecamatan)} labels={sortBy(filteredData,'NDVI').map(item => item.Kelurahan)} data={sortBy(filteredData,'NDVI').map(item => item.NDVI.toFixed(2))} title="NDVI" />
                 </div>
                 <div style={{ width: '33.3%' }}>
-                  <BarChart kabupaten={sortBy(filteredData,'IKP2023').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'IKP2023').map(item => item.Kecamatan)} labels={sortBy(filteredData,'AksesAirBersih').map(item => item.Kelurahan)} data={sortBy(filteredData,'IKP2023').map(item => item.IKP2023.toFixed(2))} title="Estimasi IKP 2023" />
+                  <BarChart kabupaten={sortBy(filteredData,'SoilMoisture').map(item => item.Kabkot)} kecamatan={sortBy(filteredData,'SoilMoisture').map(item => item.Kecamatan)} labels={sortBy(filteredData,'SoilMoisture').map(item => item.Kelurahan)} data={sortBy(filteredData,'SoilMoisture').map(item => item.SoilMoisture.toFixed(2))} title="Soil Moisture" />
                 </div>
               </motion.div>
               <div  style={{ marginLeft: '-20px' }} className="flex flex-col rounded-lg">
