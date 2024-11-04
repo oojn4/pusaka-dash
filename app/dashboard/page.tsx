@@ -107,6 +107,7 @@ export default function Home() {
   const [geojsonData, setGeojsonData] = useState<GeoJSON.FeatureCollection>();
   
   useEffect(() => {
+    alert("Dibutuhkan waktu sekitar 2-3 menit untuk load data");
     fetch('/formatted_data.json')
       .then((response) => response.json())
       .then((jsonData: DataItem[]) => {
